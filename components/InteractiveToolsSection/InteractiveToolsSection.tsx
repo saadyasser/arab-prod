@@ -19,7 +19,7 @@ const InteractiveToolsSection = () => {
           للبرمجة هي شريكك المثالي لتحقيق هذه الأهداف بنجاح.
         </p>
         <div className="btn-wrapper">
-          <Button>
+          <Button className="button">
             تواصل معنا
             <PhoneIcon />
           </Button>
