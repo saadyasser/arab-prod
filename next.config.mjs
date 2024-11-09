@@ -1,11 +1,11 @@
-// next.config.js
+// next.config.mjs
 const nextConfig = {
     typescript: {
-      ignoreBuildErrors: true, // This will allow Next.js to build even with TypeScript errors
+      ignoreBuildErrors: true,  // Ignore TypeScript errors during build
     },
     eslint: {
-      ignoreDuringBuilds: true, // This will allow builds to pass even if there are ESLint errors
+      ignoreDuringBuilds: true, // Ignore ESLint errors during build
     },
   };
   
-  module.exports = nextConfig;
+  export default nextConfig;
