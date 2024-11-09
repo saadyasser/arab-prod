@@ -1,0 +1,46 @@
+.layout-section {
+  display: flex;
+  justify-content: space-between; /* Align items horizontally */
+  padding: 20px;
+  gap: 20px;
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
+  color: white;
+}
+
+.card-section {
+  flex: 1 1 50%; /* Takes up 50% of the width */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: right;
+  max-width: 600px; /* Optional, to limit width */
+}
+
+.image-section-wrapper {
+  flex: 1 1 50%; /* Takes up 50% of the width */
+}
+
+.explore-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive layout adjustments for smaller screens */
+@media (max-width: 768px) {
+  .layout-section {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+  }
+
+  .card-section, .image-section-wrapper {
+    flex: 1 1 100%; /* Take up full width on smaller screens */
+    max-width: 100%;
+  }
+}
+
+
+

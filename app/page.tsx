@@ -1,10 +1,12 @@
-import Banner from "@/components/Banner";
+// import Banner from "@/components/Banner";
 import "./page.module.css";
+import ParentLayout from "@/components/ParentLayout/ParentLayout";
 
 export default function Home() {
   return (
     <div>
-      <Banner startAt="" endAt="" title="" />
+      <ParentLayout />
+      {/* <Banner startAt="" endAt="" title="" /> */}
     </div>
   );
 }
