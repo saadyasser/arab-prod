@@ -18,12 +18,12 @@ const InteractiveToolsSection = () => {
           فريق العمل أو تقديم تجربة تعليمية فريدة لعملائك، الأكاديمية العربية
           للبرمجة هي شريكك المثالي لتحقيق هذه الأهداف بنجاح.
         </p>
-        {/* <div className="btn-wrapper"> */}
-        <Button>
-          تواصل معنا
-          <PhoneIcon />
-        </Button>
-        {/* </div> */}
+        <div className="btn-wrapper">
+          <Button>
+            تواصل معنا
+            <PhoneIcon />
+          </Button>
+        </div>
       </Card>
     </section>
   );
