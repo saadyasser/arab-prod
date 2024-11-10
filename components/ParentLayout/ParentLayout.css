@@ -1,6 +1,7 @@
 .layout-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2%;
   align-items: center;
   background: linear-gradient(to right, #4a00e0, #8e2de2);
   padding: 40px;

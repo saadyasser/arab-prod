@@ -24,21 +24,50 @@
   height: 339px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .image-section {
     width: 80%;
-    height: auto;
+    height: 300px;
   }
 
   .image {
-    width: 100%;
+    display: block;
+    width: 70%;
     height: auto;
   }
 
   .image-1,
   .image-2 {
-    position: static;
+    position: absolute;
     margin-top: 20px;
   }
+
+ .image-2 {
+  right: 30%;
+  top: 30%;
+ }
+ .image-1 {
+  top: 0;
+  right: 0;
+ }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .image-section {
+    width: 80%;
+    height: 600px;
+  }
+  .image {
+    width: 65%;
+    height: auto;
+  }
+  .image-1 {
+    top: 50px;
+   }
+
+  .image-2 {
+    top: 37%;
+    right: 30%;
+   }
+}
+/* Responsive adjustments */
