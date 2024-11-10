@@ -5,6 +5,8 @@ import { Tajawal } from "next/font/google";
 
 import "./globals.css";
 
+import { Tajawal } from "next/font/google";
+
 const tajawal = Tajawal({
   subsets: ["arabic"],
   display: "swap",
