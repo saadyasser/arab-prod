@@ -1,0 +1,35 @@
+.educational-experience .row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 72px;
+  padding: 70px 115px;
+}
+
+.educational-experience .row .column {
+  flex: 1;
+}
+
+.educational-experience .row .column .right-column .experienceImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 1440px) {
+  .educational-experience .row {
+    flex-direction: column;
+    padding: 75px 50px;
+  }
+}
+
+@media (max-width: 390px) {
+  .educational-experience .row {
+    padding: 45px 45px;
+    flex-direction: column;
+    gap: 35px;
+  }
+}
