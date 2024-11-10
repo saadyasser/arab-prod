@@ -17,12 +17,75 @@
   object-fit: contain;
 }
 
+.educational-experience .row .column .left-column {
+  padding-top: 37px;
+}
+.educational-experience .row .column .left-column .experience-card {
+  border: 3px solid #713488;
+  border-radius: 10px;
+  padding: 76px 40px 114px 32px;
+  text-align: center;
+}
+
+.educational-experience .row .column .left-column .experience-card .title {
+  color: #713488;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-bottom: 109px;
+}
+
+.educational-experience
+  .row
+  .column
+  .left-column
+  .experience-card
+  .explanation {
+  color: #713488;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.educational-experience
+  .row
+  .column
+  .left-column
+  .experience-card
+  .btn-wrapper {
+  margin-top: 38px;
+  display: none;
+}
+
+.educational-experience .row .column .left-column .btn-wrapper {
+  margin-top: 38px;
+  display: flex;
+  justify-content: center;
+}
+.educational-experience
+  .row
+  .column
+  .left-column
+  .btn-wrapper
+  .educationButton {
+  background-color: #00be98;
+  padding: 26px 51px;
+  border-radius: 10px;
+  height: 80px;
+  gap: 22px;
+  font-size: 19px;
+  line-height: 23px;
+}
+
 /* Responsive Styles */
 
 @media (max-width: 1440px) {
   .educational-experience .row {
     flex-direction: column;
     padding: 75px 50px;
+  }
+  .educational-experience .row .column .left-column {
+    padding: 0 154px;
   }
 }
 
@@ -31,5 +94,53 @@
     padding: 45px 45px;
     flex-direction: column;
     gap: 35px;
+  }
+  .educational-experience .row .column .left-column {
+    padding: 0;
+  }
+
+  .educational-experience .row .column .left-column .experience-btn {
+    width: 100%;
+    height: 60px;
+    font-size: 16px;
+  }
+
+  .educational-experience .row .column .left-column .experience-card {
+    padding: 30px 16px 25px 19px !important;
+  }
+  .educational-experience .row .column .left-column .experience-card .title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    margin-bottom: 13px;
+  }
+
+  .educational-experience
+    .row
+    .column
+    .left-column
+    .experience-card
+    .btn-wrapper {
+    margin-top: 38px;
+    display: flex;
+    justify-content: center;
+  }
+  .educational-experience
+    .row
+    .column
+    .left-column
+    .btn-wrapper
+    .educationButton {
+    background-color: #00be98;
+    padding: 20px 14px !important;
+    height: 60px;
+    border-radius: 10px;
+    gap: 10px;
+    font-size: 19px;
+    line-height: 23px;
+  }
+  .educational-experience .row .column .left-column .btn-wrapper {
+    margin-top: 38px;
+    display: none;
   }
 }
