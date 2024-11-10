@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import EducationIcon from "../Svgs/Education/EducationIcon";
+import EducationIcon from "../Svgs/EducationIcon/EducationIcon";
 import { Button } from "../ui/button";
 import ExperienceImage from "@/public/images/ExperienceImage.svg";
 
