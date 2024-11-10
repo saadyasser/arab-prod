@@ -1,41 +1,33 @@
 import React from "react";
-import Card from "../Card/Card";
+import TextCard from "../TextCard/TextCard";
 import ImageComponent from "../ImageComponent/ImageComponent";
 import "./ParentLayout.css";
 
 const ParentLayout: React.FC = () => {
-    const images = ["/image1.jpg", "/image2.jpg"];
-    const cards = [
-      {
-        icon: "/icon1.png",
-        title: "تحسين قدراتك",
-        description: "هذا وصف تفصيلي حول كيفية تحسين القدرات بطريقة فعالة ومستمرة."
-      },
-      {
-        icon: "/icon2.png",
-        title: "ابقَ على اطلاع",
-        description: "هذا وصف حول البقاء على اطلاع بآخر التحديثات والموارد المتاحة."
-      },
-      {
-        icon: "/icon3.png",
-        title: "توسيع معرفتك",
-        description: "هذا وصف حول كيفية توسيع المعرفة وتطوير المهارات الشخصية."
-      }
-    ];
-  
-    return (
-      <div className="layout-section">
-        <div className="card-section">
-          {cards.map((card, index) => (
-            <Card key={index} icon={card.icon} title={card.title} description={card.description} />
-          ))}
-          <button className="explore-button">قم باستكشاف الدورات</button>
-        </div>
-        <div className="image-section-wrapper">
-          <ImageComponent images={images} />
-        </div>
+  return (
+    <div className="layout-section">
+      <div className="card-section">
+        <TextCard
+          icon="/images/notes.png"
+          title="اختبر قدراتك"
+          description="تمكنك الأكاديمية العربية للبرمجة من اختبار مهاراتك البرمجية عبر الإنترنت بسهولة ومرونة. من خلال خدمة الامتحان البرمجي الإلكتروني"
+        />
+        <TextCard
+          icon="/images/choice.png"
+          title="قم بالاختيار"
+          description="يمكنك اختيار اللغة البرمجية التي تود اختبار معرفتك بها، سواء كانت Python، Java، JavaScript أو أي لغة أخرى من اللغات المتاحة"
+        />
+        <TextCard
+          icon="/images/certificant.png"
+          title="اعرف ترتيبك"
+          description="تيح لك لوحة الشرف معرفة ترتيبك بين الطلاب الذين اجتازوا الامتحان، مما يمنحك فرصة مميزة للتميز والإشادة بإنجازك أمام المجتمع الأكاديمي وزملائك"
+        />
+        <button className="explore-button">
+        <img src="/images/check.png" alt="Explore Icon" className="button-icon" /> قسم الامتحانات</button>
       </div>
-    );
-  };
+      <ImageComponent />
+    </div>
+  );
+};
 
 export default ParentLayout;

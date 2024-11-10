@@ -1,21 +1,11 @@
 import React from "react";
 import "./ImageComponent.css";
 
-interface ImageSectionProps {
-  images: string[];
-}
-
-const ImageComponent: React.FC<ImageSectionProps> = ({ images }) => {
+const ImageComponent: React.FC = () => {
   return (
     <div className="image-section">
-      {images.map((src, index) => (
-        <img
-          key={index}
-          src={src}
-          alt={`Image ${index + 1}`}
-          className={`image-item image-${index + 1}`}
-        />
-      ))}
+      <img src="/images/human2.jpeg" alt="Image 1" className="image image-1" />
+      <img src="/images/human1.jpeg" alt="Image 2" className="image image-2" />
     </div>
   );
 };

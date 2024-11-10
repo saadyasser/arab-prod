@@ -1,43 +1,44 @@
 .image-section {
   position: relative;
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  width: 600px;
+  height: 544px;
+  margin-right: 7%;
 }
 
-.image-item {
-  width: 100%;
-  border-radius: 8px;
+.image {
+  position: absolute;
+  width: 357px;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Specific positioning for images */
 .image-1 {
-  position: relative;
-  z-index: 1;
+  top: 0;
+  right: 0;
+  height: 326px;
 }
 
 .image-2 {
-  position: absolute;
-  top: 40px;
-  right: 20px;
-  width: 90%;
-  z-index: 0;
+  bottom: 4px;
+  left: 3%;
+  height: 339px;
 }
 
 /* Responsive adjustments */
-@media (min-width: 768px) {
+@media (max-width: 1024px) {
   .image-section {
-    max-width: 300px;
+    width: 80%;
+    height: auto;
   }
 
+  .image {
+    width: 100%;
+    height: auto;
+  }
+
+  .image-1,
   .image-2 {
-    top: 60px;
-    right: 30px;
+    position: static;
+    margin-top: 20px;
   }
 }
-
-
-
-
