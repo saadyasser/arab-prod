@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Provider } from "@/components/ui/provider";
 import { ReactNode } from "react";
+import { Tajawal } from "next/font/google";
 
 import "./globals.css";
 
 import { Tajawal } from "next/font/google";
+
 const tajawal = Tajawal({
   subsets: ["arabic"],
   display: "swap",
