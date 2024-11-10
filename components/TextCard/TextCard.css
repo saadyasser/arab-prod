@@ -1,4 +1,4 @@
-.card {
+.card-text {
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -19,7 +19,7 @@
   /* text-align: right; */
 }
 
-.card-title {
+.card-text-title {
   font-size: 23px;
   font-weight: 700;
   font-weight: bold;
@@ -27,7 +27,7 @@
   /* text-align: right; */
 }
 
-.card-description {
+.card-text-description {
   font-size: 19px;
   line-height: 2;
   font-weight: 500;

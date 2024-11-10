@@ -1,12 +1,12 @@
-// import Banner from "@/components/Banner";
 import "./page.module.css";
 import ParentLayout from "@/components/ParentLayout/ParentLayout";
+import InteractiveToolsSection from "@/components/InteractiveToolsSection/InteractiveToolsSection";
 
 export default function Home() {
   return (
     <div>
       <ParentLayout />
-      {/* <Banner startAt="" endAt="" title="" /> */}
+      <InteractiveToolsSection />
     </div>
   );
 }

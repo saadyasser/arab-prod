@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Provider } from "@/components/ui/provider"; 
+import { Provider } from "@/components/ui/provider";
 import { ReactNode } from "react";
 import { Tajawal } from "next/font/google";
 
@@ -15,7 +15,6 @@ const tajawal = Tajawal({
   display: "swap",
   weight: ["900", "800", "700", "500", "400", "300"],
 });
-
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
