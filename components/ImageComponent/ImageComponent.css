@@ -1,0 +1,73 @@
+.image-section {
+  position: relative;
+  width: 600px;
+  height: 544px;
+  margin-right: 7%;
+}
+
+.image {
+  position: absolute;
+  width: 357px;
+  border: 3px solid #FFFEFE;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-1 {
+  top: 0;
+  right: 0;
+  height: 326px;
+}
+
+.image-2 {
+  bottom: 4px;
+  left: 3%;
+  height: 339px;
+}
+
+@media (max-width: 768px) {
+  .image-section {
+    width: 80%;
+    height: 300px;
+  }
+
+  .image {
+    display: block;
+    width: 70%;
+    height: auto;
+  }
+
+  .image-1,
+  .image-2 {
+    position: absolute;
+    margin-top: 20px;
+  }
+
+ .image-2 {
+  right: 30%;
+  top: 30%;
+ }
+ .image-1 {
+  top: 0;
+  right: 0;
+ }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .image-section {
+    width: 80%;
+    height: 600px;
+  }
+  .image {
+    width: 65%;
+    height: auto;
+  }
+  .image-1 {
+    top: 50px;
+   }
+
+  .image-2 {
+    top: 37%;
+    right: 30%;
+   }
+}
+/* Responsive adjustments */

@@ -1,0 +1,43 @@
+.card-text {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 8px;
+  direction: rtl
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 8px;
+  /* text-align: right; */
+}
+
+.card-text-title {
+  font-size: 23px;
+  font-weight: 700;
+  font-weight: bold;
+  margin-bottom: 10px;
+  /* text-align: right; */
+}
+
+.card-text-description {
+  font-size: 19px;
+  line-height: 2;
+  font-weight: 500;
+  /* text-align: right; */
+}
+
+
+@media (max-width: 1024px) {
+  .card-header {
+    justify-content: center;
+  }
+
+}
