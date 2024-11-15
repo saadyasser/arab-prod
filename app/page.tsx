@@ -11,7 +11,7 @@ export default function Home() {
       <ParentLayout />
       <EducationalExperience />
       <InteractiveToolsSection />
-      <Carousel columns={5}>
+      <Carousel columns={4}>
         <div style={{ backgroundColor: "lightblue", height: "150px" }}>
           سعد 1
         </div>

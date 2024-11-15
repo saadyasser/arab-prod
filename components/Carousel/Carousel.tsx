@@ -33,12 +33,12 @@ const Carousel = ({ children, columns = 4 }: CarouselProps) => {
       <div className={styles["carousel-wrapper"]}>
         {/* Left Arrow */}
         <button
-          disabled={currentIndex === 0}
-          onClick={handlePrev}
+          // disabled={currentIndex + columns >= children.length}
+          onClick={handleNext}
           className={`${styles["arrow-button"]} ${styles["arrow-left"]}`}
-          style={{
-            opacity: currentIndex === 0 ? ".8" : "1",
-          }}
+          // style={{
+          //   opacity: currentIndex + columns >= children.length ? ".8" : "1",
+          // }}
         >
           {/* SVG for the left arrow */}
           <svg
@@ -78,12 +78,12 @@ const Carousel = ({ children, columns = 4 }: CarouselProps) => {
 
         {/* Right Arrow */}
         <button
-          disabled={currentIndex + columns >= children.length}
-          onClick={handleNext}
+          // disabled={currentIndex === 0}
+          onClick={handlePrev}
           className={`${styles["arrow-button"]} ${styles["arrow-right"]}`}
-          style={{
-            opacity: currentIndex + columns >= children.length ? ".8" : "1",
-          }}
+          // style={{
+          //   opacity: currentIndex === 0 ? ".8" : "1",
+          // }}
         >
           {/* SVG for the right arrow */}
           <svg
