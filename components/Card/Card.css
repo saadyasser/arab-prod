@@ -1,19 +1,19 @@
 .card {
-    border-radius: 5px;
-    background-color: white;
-    padding: 7px 14px;
+  border-radius: 5px;
+  background-color: white;
+  padding: 7px 14px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .card {
-        border-radius: 10px;
-        padding: 94px 75px 28px ;
-    }
+  .card {
+    border-radius: 10px;
+    padding: 94px 75px 28px;
+  }
 }
 
 @media (min-width: 1025px) {
-    .card {
-        border-radius: 10px;
-        padding: 62px 70px 71px 56px ;
-    }
+  .card {
+    border-radius: 10px;
+    padding: 62px 70px 71px 56px;
+  }
 }
