@@ -16,7 +16,7 @@ const Carousel = ({ children, columns = 4 }: CarouselProps) => {
     if (scrollContainerRef.current) {
       const { offsetWidth } = scrollContainerRef.current;
       scrollContainerRef.current.scrollBy({
-        left: -offsetWidth,
+        left: -offsetWidth - 20,
         behavior: "smooth",
       });
     }
@@ -27,11 +27,13 @@ const Carousel = ({ children, columns = 4 }: CarouselProps) => {
     if (scrollContainerRef.current) {
       const { offsetWidth } = scrollContainerRef.current;
       scrollContainerRef.current.scrollBy({
-        left: offsetWidth,
+        left: offsetWidth + 20,
         behavior: "smooth",
       });
     }
   }, []);
+
+  const totalGap = (columns - 1) * 20;
 
   return (
     <div className={styles["carousel-container"]}>
@@ -68,7 +70,7 @@ const Carousel = ({ children, columns = 4 }: CarouselProps) => {
         {/* Carousel Items */}
         <div ref={scrollContainerRef} className={styles["carousel-items"]}>
           {children.map((child, index) => (
-            <div key={index} className={styles["carousel-item"]}>
+            <div key={index} className={styles["carousel-item-" + columns]}>
               {child}
             </div>
           ))}
