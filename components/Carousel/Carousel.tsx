@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, ReactNode } from "react";
+import { useRef, useCallback, ReactNode } from "react";
 import styles from "./Carousel.module.css";
 
 type CarouselProps = {
@@ -9,36 +9,37 @@ type CarouselProps = {
 };
 
 const Carousel = ({ children, columns = 4 }: CarouselProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // Get visible items (based on current index and number of columns)
-  const visibleItems = children.slice(currentIndex, currentIndex + columns);
-
-  // Handle next button click
-  const handleNext = () => {
-    if (currentIndex + columns < children.length) {
-      setCurrentIndex(currentIndex + 1);
+  // Scroll Left by 100% of the container's width
+  const scrollLeft = useCallback(() => {
+    if (scrollContainerRef.current) {
+      const { offsetWidth } = scrollContainerRef.current;
+      scrollContainerRef.current.scrollBy({
+        left: -offsetWidth,
+        behavior: "smooth",
+      });
     }
-  };
+  }, []);
 
-  // Handle previous button click
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+  // Scroll Right by 100% of the container's width
+  const scrollRight = useCallback(() => {
+    if (scrollContainerRef.current) {
+      const { offsetWidth } = scrollContainerRef.current;
+      scrollContainerRef.current.scrollBy({
+        left: offsetWidth,
+        behavior: "smooth",
+      });
     }
-  };
+  }, []);
 
   return (
     <div className={styles["carousel-container"]}>
       <div className={styles["carousel-wrapper"]}>
         {/* Left Arrow */}
         <button
-          // disabled={currentIndex + columns >= children.length}
-          onClick={handleNext}
+          onClick={scrollLeft}
           className={`${styles["arrow-button"]} ${styles["arrow-left"]}`}
-          // style={{
-          //   opacity: currentIndex + columns >= children.length ? ".8" : "1",
-          // }}
         >
           {/* SVG for the left arrow */}
           <svg
@@ -65,11 +66,8 @@ const Carousel = ({ children, columns = 4 }: CarouselProps) => {
         </button>
 
         {/* Carousel Items */}
-        <div
-          className={styles["carousel-items"]}
-          style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
-        >
-          {visibleItems.map((child, index) => (
+        <div ref={scrollContainerRef} className={styles["carousel-items"]}>
+          {children.map((child, index) => (
             <div key={index} className={styles["carousel-item"]}>
               {child}
             </div>
@@ -78,12 +76,8 @@ const Carousel = ({ children, columns = 4 }: CarouselProps) => {
 
         {/* Right Arrow */}
         <button
-          // disabled={currentIndex === 0}
-          onClick={handlePrev}
+          onClick={scrollRight}
           className={`${styles["arrow-button"]} ${styles["arrow-right"]}`}
-          // style={{
-          //   opacity: currentIndex === 0 ? ".8" : "1",
-          // }}
         >
           {/* SVG for the right arrow */}
           <svg
