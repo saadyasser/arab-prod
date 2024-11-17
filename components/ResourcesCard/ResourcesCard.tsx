@@ -133,20 +133,13 @@ const ResourcesCard: React.FC<ResourcesCardProps> = ({ sections, currentIndex, c
           {section.header && (
             <Flex alignItems="center" mb={4} className="header">
               {/* Display Avatar with either an image URL or SVG Icon */}
-              {section.avatarSrc ? (
-                <Avatar
-                  src={section.avatarSrc}
-                  name={section.avatarName}
-                  size="lg"
-                  mr={4}
-                  className="avatar"
-                />
-              ) : section.avatarIcon ? (
+              {section.avatarIcon ? (
                 <Avatar
                   size="lg"
                   mr={4}
                   className="avatar"
-                  // Optional: Background color for the SVG Avatar
+                  src="" // Empty src to prevent fallback image
+                  name=""
                 >
                   {section.avatarIcon}
                 </Avatar>

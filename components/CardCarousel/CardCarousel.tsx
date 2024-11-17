@@ -11,6 +11,10 @@ import ResourcesCard from '../ResourcesCard/ResourcesCard';
 import './CardCarousel.css';
 import CartIcon from '../Svgs/CartIcon/CartIcon';
 import Course1Icon from '../Svgs/Course1Icon/Course1Icon';
+import BookIcon from '../Svgs/BookIcon/BookIcon';
+import ExamsSectionIcon from '../Svgs/ExamsSectionIcon/ExamsSectionIcon';
+import TestQuizIcon from '../Svgs/TestQuizIcon/TestQuizIcon';
+import KisspngEducationIcon from '../Svgs/KisspndEducationIcon/KisspngEducationIcon';
 
 // Define data for carousel
 const cardData = [
@@ -18,19 +22,19 @@ const cardData = [
     sections: [
       {
         header: 'دروس وانماط الميدجورني',
-        avatarIcon: <Course1Icon/>,
+        avatarIcon: <BookIcon/>,
         avatarName: 'Avatar 1',
         footer: [{ label: 'المزيد...', variant: 'solid' }],
       },
       {
         header: 'بنك الأسئلة التقنية',
-        avatarIcon: <Course1Icon/>,
+        avatarIcon: <TestQuizIcon/>,
         avatarName: 'Avatar 2',
         footer: [{ label: 'المزيد...', variant: 'solid' }],
       },
       {
         header: 'قاموس المصطلحات التقنية',
-        avatarIcon: <Course1Icon/>,
+        avatarIcon: <KisspngEducationIcon/>,
         avatarName: 'Avatar 3',
         footer: [{ label: 'المزيد...', variant: 'solid' }],
       },
