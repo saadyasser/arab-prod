@@ -1,0 +1,47 @@
+.training-courses {
+    padding-block: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.training-courses .training-courses-card {
+    padding: 0px;
+}
+
+.card-header {
+    background-color: var(--tomato-color);
+}
+.card-body {
+    padding: 20px 30px;
+}
+.card-title {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+    font-weight: 700;
+    gap: 20px;
+    color: #713488;
+}
+
+.training-courses .btn-wrapper {
+    
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 9px;
+    padding-inline: 0px;
+}
+
+.training-courses .button {
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 10px;
+    border-radius: 5px;
+    padding-inline: 15px;
+    font-size: 14px;
+    line-height: 17;
+    font-weight: 700;
+}
