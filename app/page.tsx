@@ -2,6 +2,7 @@ import "./page.module.css";
 import ParentLayout from "@/components/ParentLayout/ParentLayout";
 import EducationalExperience from "@/components/EducationalExperience/EducationalExperience";
 import InteractiveToolsSection from "@/components/InteractiveToolsSection/InteractiveToolsSection";
+import UsersReviews from "@/components/UsersReviews/UsersReviews";
 import Carousel from "@/components/Carousel/Carousel";
 import TrainingCourses from "@/sections/TrainingCourses/TrainingCourses";
 
@@ -12,6 +13,8 @@ export default function Home() {
       <ParentLayout />
       <EducationalExperience />
       <InteractiveToolsSection />
+
+      <UsersReviews />
       <TrainingCourses />
       {/* <Carousel columns={4}>
         <div style={{ backgroundColor: "lightblue", height: "150px" }}>

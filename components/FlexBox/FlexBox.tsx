@@ -31,6 +31,7 @@ const FlexBox: React.FC<FlexProps> = ({
   grow = 0,
   shrink = 1,
   inline = false,
+  className,
   children,
   ...rest
 }) => {
@@ -44,6 +45,7 @@ const FlexBox: React.FC<FlexProps> = ({
       grow={grow}
       shrink={shrink}
       inline={inline}
+      className={className}
       {...rest}
     >
       {children}

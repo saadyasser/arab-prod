@@ -133,12 +133,11 @@ button.secondary {
 }
 
 button.tropical-green {
- 
   background-color: var(--tropical-green-color);
   color: white;
 }
 button.tomato {
-  background-color: var(--tomato-color);
+  background-color: var(--tropical-green-color);
   color: white;
 }
 
