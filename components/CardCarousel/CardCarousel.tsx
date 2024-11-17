@@ -6,13 +6,9 @@ import {
   IconButton,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import ResourcesCard from '../ResourcesCard/ResourcesCard';
 import './CardCarousel.css';
-import CartIcon from '../Svgs/CartIcon/CartIcon';
-import Course1Icon from '../Svgs/Course1Icon/Course1Icon';
 import BookIcon from '../Svgs/BookIcon/BookIcon';
-import ExamsSectionIcon from '../Svgs/ExamsSectionIcon/ExamsSectionIcon';
 import TestQuizIcon from '../Svgs/TestQuizIcon/TestQuizIcon';
 import KisspngEducationIcon from '../Svgs/KisspndEducationIcon/KisspngEducationIcon';
 
@@ -86,52 +82,3 @@ const CardCarousel: React.FC = () => {
 };
 
 export default CardCarousel;
-
-
-// ParentComponent.tsx
-
-// import React from "react";
-// import ResourcesCard from "../ResourcesCard/ResourcesCard"; // Your ResourcesCard component
-// import Carousel from "../Carousel/Carousel"; // Your Carousel component
-// import Course1Icon from '../Svgs/Course1Icon/Course1Icon';
-
-
-// const ParentComponent = () => {
-//   const sections = [
-//     {
-//       header: 'دروس وانماط الميدجورني',
-//       avatarIcon: <Course1Icon/>,
-//       avatarName: 'Avatar 1',
-//       footer: [{ label: 'المزيد...', variant: 'solid' }],
-//     },
-//     {
-//       header: 'بنك الأسئلة التقنية',
-//       avatarIcon: <Course1Icon/>,
-//       avatarName: 'Avatar 2',
-//       footer: [{ label: 'المزيد...', variant: 'solid' }],
-//     },
-//     {
-//       header: 'قاموس المصطلحات التقنية',
-//       avatarIcon: <Course1Icon/>,
-//       avatarName: 'Avatar 3',
-//       footer: [{ label: 'المزيد...', variant: 'solid' }],
-//     }
-//     // Add more cards as needed
-//   ];
-
-//   return (
-//     <div>
-//       <h1>Carousel with Resources Cards</h1>
-//       <Carousel columns={3}>
-//         {sections.map((section, index) => (
-//           <ResourcesCard
-//             key={index}
-//             sections={[section]} // Pass the section as an array
-//           />
-//         ))}
-//       </Carousel>
-//     </div>
-//   );
-// };
-
-// export default ParentComponent;
