@@ -1,0 +1,33 @@
+.users-reviews {
+  display: flex;
+  gap: 20px;
+}
+
+.users-reviews .card {
+  position: relative;
+  padding: 38px 25px 17px 36px;
+}
+.users-reviews .backgrondimg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.users-reviews h3 {
+  font-weight: 700;
+}
+
+.users-reviews .description {
+  margin-top: 15px;
+  padding: 0 19px;
+}
+
+@media (max-width: 1024px) {
+  /* .users-reviews .card {
+    padding: 36px 12px 16px 18px;
+  } */
+}
+@media (max-width: 768px) {
+  /* .users-reviews .card {
+    padding: 24px 8px 11px 15px;
+  } */
+}

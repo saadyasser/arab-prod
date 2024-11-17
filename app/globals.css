@@ -135,7 +135,7 @@ button.secondary {
 button.tropical-green {
   width: var(--button-tropical-green-width-desktop);
   height: var(--button-tropical-green-height-desktop);
-  background-color: var(--tomato-color);
+  background-color: var(--tropical-green-color);
   color: white;
 }
 
