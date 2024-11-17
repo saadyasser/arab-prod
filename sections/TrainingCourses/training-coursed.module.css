@@ -7,7 +7,9 @@
 }
 
 .training-courses .training-courses-card {
+    position: relative;
     padding: 0px;
+    margin-top: 40px;
 }
 
 .card-header {
@@ -15,6 +17,7 @@
 }
 .card-body {
     padding: 20px 30px;
+    text-align: center;
 }
 .card-title {
     display: flex;
@@ -35,6 +38,7 @@
 }
 
 .training-courses .button {
+    flex-basis: calc(50% - (7px /2));
     display: flex;
     align-items: center;
     color: white;
@@ -44,4 +48,16 @@
     font-size: 14px;
     line-height: 17;
     font-weight: 700;
+}
+
+@media screen and (min-width: 768px){
+    .card-title {
+        justify-content: space-between;
+    }
+    .card-body {
+        text-align: right;
+    }
+    .training-courses .btn-wrapper {
+        padding-inline: 25px;
+    }
 }
