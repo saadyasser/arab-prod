@@ -15,8 +15,8 @@
 }
 
 .resourses-carousel-container .Carousel_carousel-items__RAl8S {
-  width: 60%;
-  margin: 0 auto;
+  width: 68%;
+justify-content: flex-start;
   border-radius: 10px 0px 0px 0px;
   box-shadow: 0px 1px 20px 3px #00000040;
  }

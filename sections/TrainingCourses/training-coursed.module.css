@@ -21,62 +21,9 @@
     padding-bottom: 15px;
     border-bottom: 2px solid #713488
 }
-.training-courses .training-courses-card {
-    position: relative;
-    padding: 0px;
-    margin-top: 40px;
-    border-radius: 0px;
-}
 
-.card-header {
-    background-color: var(--tomato-color);
-}
-.card-body {
-    padding: 20px 30px;
-    text-align: center;
-}
-.card-title {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 8px;
-    font-weight: 700;
-    gap: 20px;
-    color: #713488;
-}
 
-.training-courses .btn-wrapper {
-    
-    display: flex;
-    justify-content: center;
-    gap: 7px;
-    margin-top: 9px;
-    padding-inline: 0px;
-}
 
-.training-courses .button {
-    flex-basis: calc(50% - (7px /2));
-    display: flex;
-    align-items: center;
-    color: white;
-    gap: 10px;
-    border-radius: 5px;
-    padding-inline: 15px;
-    font-size: 14px;
-    line-height: 17;
-    font-weight: 700;
-}
-
-@media screen and (min-width: 768px){
-    .card-title {
-        justify-content: space-between;
-    }
-    .card-body {
-        text-align: right;
-    }
-    .training-courses .btn-wrapper {
-        padding-inline: 25px;
-    }
-}
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
