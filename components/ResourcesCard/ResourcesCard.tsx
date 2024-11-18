@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Button,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, Button } from '@chakra-ui/react';
 import { Avatar } from "@/components/ui/avatar";
 import './ResourcesCard.css';
 
@@ -13,11 +7,15 @@ import './ResourcesCard.css';
 interface ResourcesCardProps {
   sections: {
     header?: string;
-    avatarSrc?: string;       // URL of the image
-    avatarIcon?: React.ReactNode; // Accepts SVG icons
+    avatarSrc?: string;
+    avatarIcon?: React.ReactNode;
     avatarName?: string;
     body?: string;
-    footer?: { label: string; variant?: 'solid' | 'outline' | 'ghost' | 'subtle' | 'surface' | 'plain' }[];
+    footer?: {
+      label: string;
+      variant?: 'solid' | 'outline' | 'ghost' | 'subtle' | 'surface' | 'plain';
+      icon?: React.ReactElement; // Use React.ReactElement instead of React.ElementType
+    }[];
   }[];
   currentIndex: number;
   cardsPerView: number;
@@ -54,7 +52,7 @@ const ResourcesCard: React.FC<ResourcesCardProps> = ({ sections, currentIndex, c
               ) : null}
               
               {/* Title */}
-              <Heading size="md" className="heading">{section.header}</Heading>
+              <Heading size="md" className="heading" whiteSpace="pre-line">{section.header}</Heading>
             </Flex>
           )}
 
@@ -74,7 +72,9 @@ const ResourcesCard: React.FC<ResourcesCardProps> = ({ sections, currentIndex, c
                   variant={btn.variant || 'solid'}
                   className="button"
                 >
-                  {btn.label}
+                  {/* Render the icon if it exists */}
+                  {btn.icon && <span style={{ marginRight: '0.5rem' }}>{btn.icon}</span>}
+                  <span className="button-label">{btn.label}</span>
                 </Button>
               ))}
             </Flex>
@@ -86,4 +86,3 @@ const ResourcesCard: React.FC<ResourcesCardProps> = ({ sections, currentIndex, c
 };
 
 export default ResourcesCard;
-

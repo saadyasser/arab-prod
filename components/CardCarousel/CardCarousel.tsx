@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from 'react';
 import {
-  AvatarIcon,
   Box,
   IconButton,
   useBreakpointValue,
@@ -11,28 +10,29 @@ import './CardCarousel.css';
 import BookIcon from '../Svgs/BookIcon/BookIcon';
 import TestQuizIcon from '../Svgs/TestQuizIcon/TestQuizIcon';
 import KisspngEducationIcon from '../Svgs/KisspndEducationIcon/KisspngEducationIcon';
+import MoreIcon from '../Svgs/MoreIcon/MoreIcon';
 
 // Define data for carousel
 const cardData = [
   {
     sections: [
       {
-        header: 'دروس وانماط الميدجورني',
+        header: 'دروس وانماط \nالميدجورني',
         avatarIcon: <BookIcon/>,
         avatarName: 'Avatar 1',
-        footer: [{ label: 'المزيد...', variant: 'solid' }],
+        footer: [{ label: 'المزيد...', variant: 'solid', icon: <MoreIcon/> }],
       },
       {
-        header: 'بنك الأسئلة التقنية',
+        header: 'بنك الأسئلة \n التقنية',
         avatarIcon: <TestQuizIcon/>,
         avatarName: 'Avatar 2',
-        footer: [{ label: 'المزيد...', variant: 'solid' }],
+        footer: [{ label: 'المزيد...', variant: 'solid', icon: <MoreIcon/> }],
       },
       {
-        header: 'قاموس المصطلحات التقنية',
+        header: 'قاموس المصطلحات \nالتقنية',
         avatarIcon: <KisspngEducationIcon/>,
         avatarName: 'Avatar 3',
-        footer: [{ label: 'المزيد...', variant: 'solid' }],
+        footer: [{ label: 'المزيد...', variant: 'solid', icon: <MoreIcon/> }],
       },
     ],
   },

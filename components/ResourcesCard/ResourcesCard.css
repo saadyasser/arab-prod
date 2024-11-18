@@ -3,9 +3,8 @@
 /* Custom Card Styling */
 .customCard {
   width:900px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px 0px 0px 0px;
+  box-shadow: 0px 1px 20px 3px #00000040;
   transition: transform 0.2s ease;
   display: flex;
   flex-wrap: wrap;
@@ -20,7 +19,11 @@
   margin-top: 47px;
   width: 100%; /* Default width (on mobile) */
   box-sizing: border-box;
-  width: 26%;
+  width: 30%;
+}
+
+.button-label {
+  font-size: var(--para2-font-size-desktop);
 }
 
 /* Header Styling */
@@ -31,7 +34,7 @@
   text-align: center;
 }
 .heading {
-  font-size: 23px;;
+  font-size: var(--h3-font-size-desktop);;
   margin-top: 27px;
   margin-bottom: 37px;
 }
@@ -43,6 +46,7 @@
   background-color: var(--primary-color);
   width:130px;
   height: 130px;
+
 }
 
 /* Footer Styling */
@@ -51,43 +55,74 @@
 
 }
 .button {
-  width: 200px;
-  height:60px ;
+  width: var(--button-secondary-width-desktop);
+  height:var(--button-secondary-height-desktop) ;
   margin-bottom: 47px;
   background-color: var(--tropical-green-color);
 }
 
 /* Media Queries for Responsive Design */
 
-/* On mobile (width 600px and below) */
-@media (max-width: 600px) {
-  .customCard {
-    width: 52%;
-  }
-
-  .card-section {
-    width: 100%;
-  }
-}
-
 /* On tablet (width between 601px and 900px) */
-@media (min-width: 601px) and (max-width: 900px) {
+@media only screen and (max-width: 1024px) {
   .customCard {
-    width: 49%;
+    width: 720px;
+  }
+
+  .card-section {
+    width: 48%;
+  }
+
+  .button {
+    width: 230px;
+    height:var(--button-secondary-height-desktop) ;
+    margin-bottom: 8px;
+  }
+
+  .heading {
+    font-size: var(--h3-font-size-tablet);
+  }
+  
+  .avatar {
+    width:173px;
+    height: 173px;
+    box-shadow: 0px 11px 10px 0px #00000040;
+  }
+
+  .button-label {
+    font-size: var(--para2-font-size-tablet);
+  }
+  
+}
+
+/* On mobile (width 600px and below) */
+@media only screen and (max-width: 480px) {
+  .customCard {
+    width: 204px;
   }
 
   .card-section {
     width: 100%;
   }
+
+  .button {
+    width: var(--button-secondary-width-mobile);
+    height:var(--button-secondary-height-mobile) ;
+    margin-bottom: 8px;
+  }
+
+  .heading {
+    font-size: var(--h2-font-size-mobile);
+  }
+  
+  .avatar {
+    width:120px;
+    height: 112px;
+  }
+
+  .button-label {
+    font-size: var(--para2-font-size-mobile);
+  }
 }
 
-/* On desktop (width 901px and above) */
-/* @media (min-width: 901px) {
-  .customCard {
-    width: 46%;
-  }
 
-  .card-section {
-    width: 32%;
-  }
-} */
