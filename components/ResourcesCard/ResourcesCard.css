@@ -1,24 +1,25 @@
 @import url('../../app/globals.css');
 
 .customCard {
-  width:900px;
-  border-radius: 10px 0px 0px 0px;
-  box-shadow: 0px 1px 20px 3px #00000040;
   transition: transform 0.2s ease;
   display: flex;
   flex-wrap: wrap;
   justify-content:space-around;
-  margin-left: 100px;
-  margin-right: 100px;
-
   }
 
 .card-section {
   margin-top: 47px;
   width: 100%; 
   box-sizing: border-box;
-  width: 30%;
+
 }
+
+ .Carousel_carousel-items__RAl8S {
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 10px 0px 0px 0px;
+  box-shadow: 0px 1px 20px 3px #00000040;
+ }
 
 .button-label {
   font-size: var(--para2-font-size-desktop);
@@ -45,6 +46,8 @@
 }
 
 .footer {
+  display: flex;
+  justify-content: center;
   align-items: center;
 
 }
@@ -56,13 +59,14 @@
 }
 
 @media only screen and (max-width: 1024px) {
-  .customCard {
-    width: 720px;
-  }
+ 
 
-  .card-section {
-    width: 48%;
-  }
+  .Carousel_carousel-items__RAl8S {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px 0px 0px 0px;
+    box-shadow: 0px 1px 20px 3px #00000040;
+   }
 
   .button {
     width: 230px;
@@ -87,10 +91,14 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .customCard {
-    width: 204px;
-  }
+  
 
+  .Carousel_carousel-items__RAl8S {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px 0px 0px 0px;
+    box-shadow: 0px 1px 20px 3px #00000040;
+   }
   .card-section {
     width: 100%;
   }
