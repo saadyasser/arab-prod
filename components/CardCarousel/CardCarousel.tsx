@@ -54,7 +54,7 @@ const cardData = [
 
 const CardCarousel: React.FC = () => {
   return (
-    <Box className="carousel-container">
+    <Box className="resourses-carousel-container">
       {/* The Carousel component with cardsPerView set to 3 to show 3 cards at once */}
       <Carousel columns={3}>
         {cardData[0].sections.map((section, index) => (
