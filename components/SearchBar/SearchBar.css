@@ -1,0 +1,26 @@
+.searchbar {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    border: 2px solid #713488;
+    border-radius: 50px;
+    
+}
+.input-wrapper {
+    flex-grow: 1;
+}
+
+input {
+    width: 100%;
+    outline: 0;
+    flex-grow: 1;
+    padding: 20px 30px;
+    color:rgba(113, 52, 136, 0.678);
+}
+::placeholder {
+    color:rgba(113, 52, 136, 0.678);
+}
+.searchbar .search-icon {
+    border-right: 4px solid #8D55A3;
+    padding: 27px;
+}

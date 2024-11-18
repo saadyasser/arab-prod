@@ -1,15 +1,31 @@
 .training-courses {
     padding-block: 80px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
     gap: 80px;
 }
 
+.training-courses-header {
+    margin-inline: 60px;
+    display: flex;
+    gap: 35px;
+    flex-direction: column-reverse;
+}
+
+
+.title {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 1;  
+}
+.title h2 {
+    padding-bottom: 15px;
+    border-bottom: 2px solid #713488
+}
 .training-courses .training-courses-card {
     position: relative;
     padding: 0px;
     margin-top: 40px;
+    border-radius: 0px;
 }
 
 .card-header {
@@ -59,5 +75,35 @@
     }
     .training-courses .btn-wrapper {
         padding-inline: 25px;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .training-courses-header {
+        margin-inline: 75px;
+    }
+    .title {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .title h2 {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .training-courses-header {
+        flex-direction: row;
+        align-items: center;
+        margin-inline: 100px;
+        margin-bottom: 85px;
+        gap: 0;
+    }
+    .title {
+        justify-content: flex-start;
+    }
+    .title,  .searchbar {
+        flex-basis: 50%;
     }
 }
