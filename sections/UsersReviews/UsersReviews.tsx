@@ -13,7 +13,7 @@ import styles from "./UsersReviews.module.css";
 const UsersReviews = () => {
   return (
     <section className={styles["users-reviews"]}>
-      <Carousel columns={4}>
+      <Carousel columns={3}>
         {DataReviews.map((data) => (
           <Card key={data.id} clasName={styles["card"]}>
             <Image
