@@ -1,0 +1,123 @@
+@import url('../../app/globals.css');
+
+.customCard {
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  }
+
+.card-section {
+  margin-top: 47px;
+  width: 100%; 
+  box-sizing: border-box;
+
+}
+
+.resourses-carousel-container .Carousel_carousel-items__RAl8S {
+  width: 68%;
+  justify-content: flex-start;
+  border-radius: 10px 0px 0px 0px;
+  box-shadow: 0px 1px 20px 3px #00000040;
+ }
+
+.button-label {
+  font-size: var(--para2-font-size-desktop);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.heading {
+  font-size: var(--h3-font-size-desktop);;
+  margin-top: 27px;
+  margin-bottom: 37px;
+}
+
+.avatar {
+  margin-bottom: 0.5rem;
+  background-color: var(--primary-color);
+  width:130px;
+  height: 130px;
+
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.button {
+  width: var(--button-secondary-width-desktop);
+  height:var(--button-secondary-height-desktop) ;
+  margin-bottom: 47px;
+  background-color: var(--tropical-green-color);
+}
+
+@media only screen and (max-width: 1024px) {
+ 
+  .resourses-carousel-container .Carousel_carousel-items__RAl8S {
+    width: 89%;
+    margin: 0 auto;
+    border-radius: 10px 0px 0px 0px;
+    box-shadow: 0px 1px 20px 3px #00000040;
+   }
+
+  .button {
+    width: 230px;
+    height:var(--button-secondary-height-desktop) ;
+    margin-bottom: 8px;
+  }
+
+  .heading {
+    font-size: var(--h3-font-size-tablet);
+  }
+  
+  .avatar {
+    width:173px;
+    height: 173px;
+    box-shadow: 0px 11px 10px 0px #00000040;
+  }
+
+  .button-label {
+    font-size: var(--para2-font-size-tablet);
+  }
+  
+}
+
+@media only screen and (max-width: 768px) {
+  
+
+  .resourses-carousel-container .Carousel_carousel-items__RAl8S {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px 0px 0px 0px;
+    box-shadow: 0px 1px 20px 3px #00000040;
+   }
+  .card-section {
+    width: 100%;
+  }
+
+  .button {
+    width: var(--button-secondary-width-mobile);
+    height:var(--button-secondary-height-mobile) ;
+    margin-bottom: 8px;
+  }
+
+  .heading {
+    font-size: var(--h2-font-size-mobile);
+  }
+  
+  .avatar {
+    width:120px;
+    height: 112px;
+  }
+
+  .button-label {
+    font-size: var(--para2-font-size-mobile);
+  }
+}
