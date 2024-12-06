@@ -42,7 +42,7 @@ export const BootstrapIcon = (props: any) => {
         height="176"
         rx="38"
         stroke="white"
-        stroke-width="4"
+        strokeWidth="4"
       />
       <defs>
         <pattern
