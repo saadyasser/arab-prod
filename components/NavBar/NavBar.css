@@ -1,8 +1,9 @@
 .nav {
-    padding: 25px;
-    background-color: rgba(113, 52, 136, 0.678);
+    position: relative;
 }
 .nav-container {
+    background-color: var(--primary-color);
+    padding: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,12 +13,26 @@
     display: none;
 }
 .nav-items-mobile {
+    /* top: 100%; */
+    border-radius: 8px;
+    left: 0;
+    z-index: 10;
+    position: absolute;
+    margin-right: auto;
+    width: 80%;
+    padding-block: 25px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 20px;
-    color: white;
-    margin-top: 25px;
+    background-color: white;
+    color: var(--purple-color);
+}
+
+.nav-items-mobile   a {
+    padding: 20px;
+    display: block;
+    text-align: center;
 }
 .nav-close-icon {
     color: white;
@@ -37,6 +52,46 @@
     transform: scale(.85);
 }
 
+.nav-sub-list {
+    border-radius: 8px;
+    margin-right: auto;
+    padding-block: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    background-color: white;
+    color: var(--purple-color);
+    background-color: #71348814;
+}
+
+.nav-sub-list a {
+    width: 80%;
+    margin-inline: auto;
+    padding: 20px;
+    border-bottom: 1px solid var(--purple-color);
+    margin-inline: auto;
+}
+.recources-link {
+    background-color: var(--purple-color);
+    color: white;
+    border-radius: 5px;
+}
+
+.desktop-resources {
+    position: relative;
+}
+.desktop-resources .nav-sub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    z-index: 1000;
+    padding: 30px 40px;
+    background-color: white;
+    position: absolute;
+    left: calc(-100% - 20px);
+    top: calc(100% + 15px);
+}
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .burgor-icon {
         display: none;
