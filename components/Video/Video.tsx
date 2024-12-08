@@ -8,48 +8,47 @@ const Video: React.FC = () => {
     <div className="design-container">
       {/* Background Video */}
       <video
+        src="/videos/aca-video-desktop.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
         className="background-video desktop-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src="/videos/video-desktop.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      />
+
       <video
-        className="background-video mobile-video"
+        src="/videos/aca-video-mobile.mp4"
         autoPlay
-        muted
         loop
+        muted
         playsInline
-      >
-        <source src="/videos/video-mobile.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+        className="background-video mobile-video"
+      />
 
-      {/* Character Section */}
-      <div className="character">
-            <Character/>
-            <p className="character-text">لغة ضاد</p>
-          {/* <img src="/dal.svg" alt="ض" className="character-image" /> */}
-        </div>
-
-      {/* Content */}
       <div className="content">
-        {/* Text Section */}
-        <div className="text">
-          <p className="description">
-          في الأكاديمية العربية للبرمجة، نسعى دائمًا إلى تقديم محتوى تعليمي يساهم في تمكين وتطوير مهارات المبرمجين الناطقين باللغة العربية. ومن هذا المنطلق، يهدف هذا القسم إلى تبسيط المفاهيم البرمجية لأي شخص، سواء كان مبتدئًا أو محترفًا، من فهمها واستيعابها بسهولة. نحرص على أن تكون الشروحات دقيقة وشاملة، مع توفير أمثلة عملية تساعد المتعلمين على تطبيق ما يتعلمونه بشكل فعّال.
-          </p>
-        
-          <button className="cta-button">
-            <Docs/>
-            تابع معنا 
-          </button>
-           
+        {/* Character Section */}
+        <div className="character">
+          <Character className="icon-character" />
+          <p className="character-text">لغة ضاد</p>
         </div>
 
+        {/* Content */}
+        <div className="description">
+          {/* Text Section */}
+          <p className="content-description">
+            في الأكاديمية العربية للبرمجة، نسعى دائمًا إلى تقديم محتوى تعليمي
+            يساهم في تمكين وتطوير مهارات المبرمجين الناطقين باللغة العربية. ومن
+            هذا المنطلق، يهدف هذا القسم إلى تبسيط المفاهيم البرمجية لأي شخص،
+            سواء كان مبتدئًا أو محترفًا، من فهمها واستيعابها بسهولة. نحرص على أن
+            تكون الشروحات دقيقة وشاملة، مع توفير أمثلة عملية تساعد المتعلمين على
+            تطبيق ما يتعلمونه بشكل فعّال.
+          </p>
+
+          <button className="cta-button">
+            <Docs />
+            تابع معنا
+          </button>
+        </div>
       </div>
     </div>
   );
