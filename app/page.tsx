@@ -16,9 +16,9 @@ export default function Home() {
   return (
     <div>
       <NavBar />
-      <CardCarousel />
       <HeroSection />
       <Video />
+      <CardCarousel />
       <TrainingCourses />
       <ParentLayout />
       <EducationalExperience />
