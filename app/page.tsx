@@ -9,23 +9,21 @@ import CardCarousel from "@/components/CardCarousel/CardCarousel";
 import Footer from "@/sections/Footer/Footer";
 import NavBar from "@/components/NavBar/NavBar";
 import HeroSection from "@/sections/HeroSection/HeroSection";
+import Video from "@/components/Video/Video";
 
 export default function Home() {
   const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"];
   return (
     <div>
       <NavBar />
+      <CardCarousel />
       <HeroSection />
-      <ParentLayout />
+      <Video />
+      <TrainingCourses />
       <ParentLayout />
       <EducationalExperience />
       <InteractiveToolsSection />
-      <CardCarousel />
-
       <UsersReviews />
-      <TrainingCourses />
-
-      <TrainingCourses />
       <Footer />
     </div>
   );
