@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
 
         <div className={styles["social-media"]}>
-          <Card clasName={styles["card"]}>
+          <div className={styles["card"]}>
             <div className={styles["title"]}>
               <h5>التواصل</h5>
               <hr className={styles["line-contact"]} />
@@ -99,8 +99,8 @@ const Footer = () => {
               <PhoneIcon />
               تواصل معنا
             </Button>
-          </Card>
-          <Card clasName={styles["card"]}>
+          </div>
+          <div className={styles["card"]}>
             <div className={styles["title"]}>
               <h5>مواقع التواصل الاجتماعي</h5>
               <hr className={styles["line-social"]} />
@@ -122,7 +122,7 @@ const Footer = () => {
               انضم الآن إلى مجتمع المبرمجين في الأكاديمية وابدأ رحلتك نحو احتراف
               البرمجة!
             </p>
-          </Card>
+          </div>
         </div>
       </div>
 

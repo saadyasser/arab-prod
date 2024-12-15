@@ -1,7 +1,7 @@
 .footer {
   background-color: #462576;
   color: #fff;
-  padding: 92px 200px 36px 200px;
+  padding: 92px 100px 36px 100px;
 }
 
 .data-row {
@@ -65,18 +65,23 @@
 }
 
 .social-media {
-  display: inline-flex;
+  display: flex;
   justify-content: space-between;
   gap: 37px;
+  /* flex-wrap: wrap; */
   color: var(--purple-color);
   align-items: stretch;
 }
 
 .card {
-  flex: 1 1 0;
-  padding: 41px 46px;
+   flex: 1;
+  /*padding: 41px 46px;
+  border-radius: 5px;
+  background-color: white; */
   border-radius: 5px;
   background-color: white;
+  padding: 25px;
+  /* flex-grow: 1; */
 }
 
 .contact-data {
@@ -94,15 +99,13 @@
 
 .btn-call {
   margin-top: 35px;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   background-color: #00be98;
   color: white;
   gap: 10px;
   border-radius: 5px;
-  padding-inline: 19px 48px;
-  font-size: 19px;
-  line-height: 35;
+  padding-inline: 15px 20px;
   font-weight: 600;
 }
 
@@ -153,20 +156,20 @@
 }
 .resources-container {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 15px;
   margin: 20px;
-  padding: 0 128px;
+  padding: 0 20px;
   grid-template-columns: repeat(4, 1fr);
 }
 .item-resource {
   color: white;
-  padding: 20px 40px;
+  padding: 15px 0;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
   border: 1px solid #fff;
-  font-size: 19px;
+  font-size: 14px;
 }
 
 /* CopyRight */
@@ -199,10 +202,12 @@
     margin-top: 50px;
   }
   .social-media {
-    gap: 27px;
+    gap: 30px;
+    flex-wrap: wrap;
   }
   .card {
-    padding: 41px 37px;
+    padding: 25px;
+    flex-grow: 1;
   }
   .resources {
     text-align: center;
@@ -215,13 +220,13 @@
     width: 100%;
   }
   .resources-container {
-    padding: 0 60px;
+    padding: 0 20px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, auto);
   }
   .item-resource {
-    font-size: 19px;
-    padding: 18px 10px;
+    font-size: 16px;
+    padding: 15px 10px;
   }
   .line-divider {
     margin-top: 40px;
@@ -235,6 +240,9 @@
   .copyright-icon {
     width: 12px;
     height: 12px;
+  }
+  .copyright-text{
+    font-size: 12px;
   }
 }
 
@@ -250,7 +258,6 @@
   .social-media {
     gap: 30px;
     flex-direction: column;
-    padding: 0 50px;
   }
   .card {
     padding: 30px 20px 30px 20px;
