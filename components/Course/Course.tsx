@@ -10,6 +10,7 @@ import { CourseType } from "@/types/course";
 
 const Course: FC<CourseType> = (props) => {
   const { id, title, imageURL, trainers, total_duration, price } = props;
+
   return (
     <Card clasName={classes["training-courses-card"]}>
       <div className={classes["card-header"]}>

@@ -25,7 +25,19 @@ const CoursesList = (props: CourseItem) => {
         تحميل...
       </div>
     );
-  if (error) return <div>Error: {error}</div>;
+  if (error)
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "30px",
+        }}
+      >
+        Error: {error}
+      </div>
+    );
 
   return (
     <>
