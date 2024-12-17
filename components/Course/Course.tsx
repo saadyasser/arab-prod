@@ -6,8 +6,7 @@ import JavaIcon from "../Svgs/JavaIcon/JavaIcon";
 import Card from "../Card/Card";
 import classes from "./Course.module.css";
 import { CourseType } from "@/types/course";
-import Image from "next/image";
-
+// import Image from "next/image";
 
 const Course: FC<CourseType> = (props) => {
   const { id, title, imageURL, trainers, total_duration, price } = props;
