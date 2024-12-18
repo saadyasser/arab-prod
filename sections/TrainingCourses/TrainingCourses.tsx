@@ -21,22 +21,11 @@ const TrainingCourses = () => {
     // },
   });
 
-  // console.log(data && data?.courses, "courses");
-
   // const filteredCourses = data?.filter(
   //   (course) =>
   //     course?.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
   //     course?.trainers[0]?.first_name?.toLowerCase().includes(searchTerm.toLowerCase())
   // );
-
-  console.log(
-    data?.courses?.filter((i) => i.status === "available"),
-    "filter"
-  );
-  console.log(
-    data?.courses?.filter((i) => i.status === "coming_soon"),
-    "filter coming_soon"
-  );
 
   return (
     <section className={classes["training-courses"]}>

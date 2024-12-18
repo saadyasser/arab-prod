@@ -48,14 +48,6 @@ const CoursesList = (props: CourseItem) => {
           ))}
         </Carousel>
       )}
-
-      {/* {data && (
-        <Carousel columns={4}>
-          {data?.courses?.map((item: CourseType) => (
-            <Course key={item.id} {...item} />
-          ))}
-        </Carousel>
-      )} */}
     </>
   );
 };
