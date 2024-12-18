@@ -22,8 +22,22 @@ const Course: FC<CourseType> = (props) => {
           <span>{title}</span>
           <span>{price}</span>
         </h3>
-        <p style={{ marginBottom: "8px" }}>{trainers[0].first_name}</p>
-        <p>{total_duration}</p>
+
+        {trainers.length > 1 && (
+          <p style={{ marginBottom: "8px" }}>
+            {trainers.map((trainer, index) => {
+              return index < trainers.length - 1
+                ? trainer.first_name + ", "
+                : trainer.first_name;
+            })}
+          </p>
+        )}
+
+        {/* <p style={{ marginBottom: "8px" }}>
+          {trainers[0].first_name}
+          
+          </p>
+        <p>{total_duration}</p> */}
       </div>
       <div className={classes["btn-wrapper"]}>
         <Button className={`${classes["button"]} tropical-green`}>
