@@ -1,10 +1,10 @@
-import { QueryKey, useQuery, UseQueryOptions } from '@tanstack/react-query';
-import { getData } from '@/lib/api/getData';
+import { QueryKey, useQuery, UseQueryOptions } from "@tanstack/react-query";
+import { getData } from "@/lib/api/getData";
 
 type UseFetchDataParams = {
   endpoint: string;
-  params?: Record<string, string | number | boolean>; 
-  queryKey?: QueryKey
+  params?: Record<string, string | number | boolean>;
+  queryKey?: QueryKey;
   queryOptions?: UseQueryOptions<any, Error>;
 };
 
@@ -12,7 +12,7 @@ export const useFetchData = <T>({
   endpoint,
   params,
   queryKey,
-  queryOptions
+  queryOptions,
 }: UseFetchDataParams) => {
   const fetchData = async () => {
     return await getData<T>({ endpoint, params });

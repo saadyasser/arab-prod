@@ -1,10 +1,10 @@
 import Carousel from "@/components/Carousel/Carousel";
 import Course from "@/components/Course/Course";
-import { CourseResponse, CourseType } from "@/types/course";
+import { CourseType } from "@/types/course";
 import React from "react";
 
 interface CourseItem {
-  data: CourseResponse | undefined;
+  data: CourseType[] | undefined;
   loading: boolean;
   error: string | null;
 }
@@ -43,15 +43,7 @@ const CoursesList = (props: CourseItem) => {
     <>
       {data && (
         <Carousel columns={4}>
-          {data?.courses?.map((item: CourseType) => (
-            <Course key={item.id} {...item} />
-          ))}
-        </Carousel>
-      )}
-
-      {data && (
-        <Carousel columns={4}>
-          {data?.courses?.map((item: CourseType) => (
+          {data?.map((item: CourseType) => (
             <Course key={item.id} {...item} />
           ))}
         </Carousel>
