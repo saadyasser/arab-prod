@@ -52,8 +52,6 @@ const UsersReviews = () => {
       </div>
     );
 
-  console.log(data);
-
   return (
     <section className={styles["users-reviews"]}>
       {data && (
