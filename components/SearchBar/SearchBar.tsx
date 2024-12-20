@@ -12,7 +12,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, setSearchTerm }) => {
     <div className="searchbar">
       <div className="input-wrapper">
         <input
-          type="text"
+          type="search"
           placeholder="مقدمة لمحرك الألعاب اليونتي ....."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
