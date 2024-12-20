@@ -1,4 +1,5 @@
 import React from "react";
+import "./Banner.css";
 interface BannerProps {
   title: string;
   startAt: string;

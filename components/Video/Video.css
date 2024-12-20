@@ -1,0 +1,153 @@
+/* Main container */
+.design-container {
+  position: relative;
+  height: 1068px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 300px 250px;
+}
+
+/* Video styles */
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Video stays in the background */
+}
+
+.desktop-video {
+  display: block; /* Display desktop video by default */
+}
+
+.mobile-video {
+  display: none;
+}
+
+/* Content styling */
+.content {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.description {
+  /* display: block; */
+  /* flex: 1; */
+  /* background-color: rgb(79, 67, 133); */
+}
+.content-description {
+  font-size: 27px;
+}
+
+.cta-button {
+  margin-top: 30px;
+  width: 200px;
+  height: 60px;
+  background: #ff6542;
+  color: white;
+  padding: 0.75rem 2.8rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+/* Character section */
+.character {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.character-text {
+  font-size: 80px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  /* line-height: 40px; */
+  z-index: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .design-container {
+    flex-direction: column;
+    padding: 40px 200px;
+  }
+  .desktop-video {
+    display: none; /* Hide desktop video */
+  }
+
+  .mobile-video {
+    display: block; /* Show mobile video */
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .character {
+    flex-grow: 0;
+  }
+
+  .description {
+    text-align: center;
+    margin: 0 auto;
+    flex-grow: 0;
+  }
+
+  .cta-button {
+    margin: 30px auto;
+  }
+
+  .content-description {
+    font-size: 25px;
+  }
+  .character-text {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .design-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 80px;
+    line-height: 25px;
+  }
+  .icon-character {
+    width: 200px;
+    height: 100px;
+  }
+  .content-description {
+    font-size: 14px;
+  }
+  .cta-button {
+    width: 150px;
+    gap: 10px;
+    padding: 0.75rem 1.5rem;
+  }
+}

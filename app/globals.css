@@ -1,6 +1,7 @@
 :root {
   --primary-color: #783ba2;
   --deep-violet-color: #462576;
+  --purple-color: #713488;
   --tropical-green-color: #00be98;
   --tomato-color: #ff6542;
   --pale-peach-color: #eadac1;
@@ -19,7 +20,7 @@
   --h1-font-size-tablet: 50px;
   --h2-font-size-tablet: 30px;
   --h3-font-size-tablet: 25px;
-  --para1-font-size-tablet: 20px;
+  --para1-font-size-tablet: 19px;
   --para2-font-size-tablet: 19px;
 
   --h1-font-size-mobile: 20px;

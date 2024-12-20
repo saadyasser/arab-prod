@@ -17,7 +17,7 @@ export const XIcon = (props: any) => {
           height="32"
           rx="8"
           fill="url(#pattern0_604_1940)"
-          shape-rendering="crispEdges"
+          shapeRendering="crispEdges"
         />
       </g>
       <defs>
@@ -28,9 +28,9 @@ export const XIcon = (props: any) => {
           width="42"
           height="42"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
