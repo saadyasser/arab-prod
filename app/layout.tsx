@@ -26,8 +26,8 @@ export default function Layout({ children }: { children: ReactNode }) {
           <Provider>
             <Banner
               title="خصومات بنسبة 20% على الكورسات"
-              endAt="2022-10-22T12:26:49.668Z"
-              startAt="2022-12-28T12:26:49.668Z"
+              startAt="2024-12-20T12:26:49.668Z"
+              endAt="2024-12-28T12:26:49.668Z"
             />
             <NavBar />
             <main>{children}</main>

@@ -1,0 +1,14 @@
+.banner {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 25px;
+  color: var(--white-color);
+  background-color: var(--deep-violet-color);
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    font-size: 12px;
+    padding: 18px 0;
+  }
+}
