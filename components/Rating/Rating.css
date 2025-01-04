@@ -10,6 +10,10 @@
   width: 24px;
   height: 24px;
 }
+.star-half {
+  width: 24px;
+  height: 24px;
+}
 
 @media (max-width: 1024px) {
   .star {
