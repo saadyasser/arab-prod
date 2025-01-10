@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../AiTools.module.css";
+import CardAi from "@/app/ai-tools/components/CardAi/CardAi";
 import { AiToolsType } from "@/types/aiTools";
 
 type AiToolsListProps = {
@@ -16,9 +17,11 @@ const AiToolsList: React.FC<AiToolsListProps> = ({ loading, error, data }) => {
   return (
     <div className={styles["ai-tools-list"]}>
       {data?.map((item) => (
-        <div key={item.tool_id}>
-          <div>{item.title}</div>
-        </div>
+        <CardAi
+          key={item.tool_id}
+          tool={item}
+          image="/images/AiBackground.png"
+        />
       ))}
     </div>
   );
