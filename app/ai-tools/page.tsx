@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import AiToolsList from "./components/AiToolsList";
 import { useFetchData } from "@/hooks/useFetchData";
 import { AiToolsResponse } from "@/types/aiTools";
+import Pagination from "./components/Pagination";
 
 const AiTools = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -32,6 +33,12 @@ const AiTools = () => {
     <div className={styles["ai-tools-container"]}>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <AiToolsList loading={loading} error={error} data={data?.data} />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        isFetching={isFetching}
+      />
     </div>
   );
 };
