@@ -1,3 +1,7 @@
+.ai-tools-container {
+  padding: 100px 60px;
+}
+
 .ai-tools-header {
   display: flex;
   justify-content: space-between;
