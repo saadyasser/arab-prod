@@ -1,0 +1,26 @@
+.ai-tools-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.btn-favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 12px 20px;
+  color: var(--deep-violet-color);
+  background-color: var(--white-color);
+  font-weight: 700;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-favorite:hover {
+  background-color: var(--deep-violet-color);
+  color: var(--white-color);
+}
