@@ -1,0 +1,9 @@
+.grid {
+    display: "flex";
+    flex-wrap: "wrap";
+    gap: 24px;
+    padding: 40px 50px;
+}
+.grid-item {
+
+}

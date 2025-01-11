@@ -46,15 +46,14 @@ const Pagination: React.FC<PaginationProps> = React.memo(
           →
         </button>
 
-        {!isFetching &&
-          allPages.map((page) => (
-            <PageButton
-              key={page}
-              page={page}
-              isActive={page === currentPage}
-              onPageChange={onPageChange}
-            />
-          ))}
+        {allPages.map((page) => (
+          <PageButton
+            key={page}
+            page={page}
+            isActive={page === currentPage}
+            onPageChange={onPageChange}
+          />
+        ))}
 
         {/* {isFetching && (
           <span className={styles["loading-indicator"]}>Loading...</span>
