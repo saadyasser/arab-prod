@@ -37,40 +37,41 @@ const Pagination: React.FC<PaginationProps> = React.memo(
     }, [currentPage, totalPages]);
 
     return (
-      <div className={styles["pagination"]}>
-        {/* Previous Button */}
-        <button
-          onClick={() => onPageChange(currentPage - 1)}
-          disabled={currentPage === 1 || isFetching}
-        >
-          →
-        </button>
+      !isFetching && (
+        <div className={styles["pagination"]}>
+          {/* Previous Button */}
+          <button
+            onClick={() => onPageChange(currentPage - 1)}
+            disabled={currentPage === 1 || isFetching}
+          >
+            →
+          </button>
 
-        {allPages.map((page) => (
-          <PageButton
-            key={page}
-            page={page}
-            isActive={page === currentPage}
-            onPageChange={onPageChange}
-          />
-        ))}
+          {allPages.map((page) => (
+            <PageButton
+              key={page}
+              page={page}
+              isActive={page === currentPage}
+              onPageChange={onPageChange}
+            />
+          ))}
 
-        {/* {isFetching && (
+          {/* {isFetching && (
           <span className={styles["loading-indicator"]}>Loading...</span>
         )} */}
 
-        {/* Next Button */}
-        <button
-          onClick={() => onPageChange(currentPage + 1)}
-          disabled={currentPage === totalPages || isFetching}
-        >
-          ←
-        </button>
-      </div>
+          {/* Next Button */}
+          <button
+            onClick={() => onPageChange(currentPage + 1)}
+            disabled={currentPage === totalPages || isFetching}
+          >
+            ←
+          </button>
+        </div>
+      )
     );
   }
 );
-
 Pagination.displayName = "Pagination";
 
 export default Pagination;

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { useFetchData } from "@/hooks/useFetchData";
 import { AiToolsResponse } from "@/types/aiTools";
@@ -36,8 +36,6 @@ const AiToolsWrapper: React.FC<AiToolsWrapperProps> = ({
   });
 
   const totalPages = data?.total_pages || 1;
-  console.log(totalPages, "total pages");
-  console.log(currentPage, "currentPage");
 
   return (
     <>
@@ -47,7 +45,7 @@ const AiToolsWrapper: React.FC<AiToolsWrapperProps> = ({
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
-        isFetching={isFetching}
+        isFetching={isFetching || loading}
       />
     </>
   );
