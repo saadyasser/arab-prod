@@ -1,4 +1,8 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import { getSession, signIn } from "next-auth/react";
+
 import { useForm } from "react-hook-form";
 
 import styles from "./SignIn.module.css";
@@ -16,6 +20,7 @@ import UserRegisterIcon from "@/components/Svgs/UserRegisterIcon/UserRegisterIco
 import { Field } from "@/components/ui/field";
 import { getPasswordStrength } from "./utils/getPasswordStrength";
 import { validatePassword } from "./utils/validatePassword";
+import { useRouter } from "next/navigation";
 
 interface FormValues {
   username: string;
@@ -28,20 +33,39 @@ const Signin = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<FormValues>({
-    // resolver: {
-    //   username: ,
-    //   password,
-    // },
-  });
+  } = useForm<FormValues>({});
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const router = useRouter();
+
+  const [error, setError] = useState("");
+
+  const onSubmit = async (data: FormValues) => {
+    const result = await signIn("credentials", {
+      redirect: false,
+      username: data.username,
+      password: data.password,
+    });
+
+    if (result?.error) {
+      setError("فشل تسجيل الدخول، يرجى التحقق من بيانات الاعتماد.");
+    } else if (result?.ok) {
+      const session = await getSession();
+      // console.log(session, "session");
+
+      const userId = session?.user?.id; // Ensure that the `user` object is correct
+      if (userId) {
+        router.push(`/`);
+      } else {
+        setError("حدث خطأ غير متوقع");
+      }
+    }
+  };
 
   return (
     <div className={styles["signin-container"]}>
       <div className={styles["sigin-card"]}>
         <div className={styles["sigin-form"]}>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <Fieldset.Root size="lg" maxW="md">
               <Stack mb="35px">
                 <Fieldset.Legend className={styles["title"]}>
