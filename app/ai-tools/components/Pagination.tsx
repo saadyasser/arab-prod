@@ -11,14 +11,16 @@ type PaginationProps = {
 
 const Pagination: React.FC<PaginationProps> = React.memo(
   ({ currentPage, totalPages, onPageChange, isFetching }) => {
-    const [allPages, setAllPages] = useState<number[]>([]);
+    const [allPages, setAllPages] = useState<number[]>(() => {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    });
 
-    useEffect(() => {
-      const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
-      console.log(isFetching, "isFetching");
+    // useEffect(() => {
+    //   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+    //   console.log(isFetching, "isFetching");
 
-      setAllPages(pageNumbers);
-    }, [totalPages]);
+    //   setAllPages(pageNumbers);
+    // }, [totalPages]);
 
     // Precompute page numbers
     const pageNumbers = useMemo(() => {
@@ -37,38 +39,36 @@ const Pagination: React.FC<PaginationProps> = React.memo(
     }, [currentPage, totalPages]);
 
     return (
-      !isFetching && (
-        <div className={styles["pagination"]}>
-          {/* Previous Button */}
-          <button
-            onClick={() => onPageChange(currentPage - 1)}
-            disabled={currentPage === 1 || isFetching}
-          >
-            →
-          </button>
+      <div className={styles["pagination"]}>
+        {/* Previous Button */}
+        <button
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage === 1 || isFetching}
+        >
+          →
+        </button>
 
-          {allPages.map((page) => (
-            <PageButton
-              key={page}
-              page={page}
-              isActive={page === currentPage}
-              onPageChange={onPageChange}
-            />
-          ))}
+        {allPages.map((page) => (
+          <PageButton
+            key={page}
+            page={page}
+            isActive={page === currentPage}
+            onPageChange={onPageChange}
+          />
+        ))}
 
-          {/* {isFetching && (
+        {/* {isFetching && (
           <span className={styles["loading-indicator"]}>Loading...</span>
         )} */}
 
-          {/* Next Button */}
-          <button
-            onClick={() => onPageChange(currentPage + 1)}
-            disabled={currentPage === totalPages || isFetching}
-          >
-            ←
-          </button>
-        </div>
-      )
+        {/* Next Button */}
+        <button
+          onClick={() => onPageChange(currentPage + 1)}
+          disabled={currentPage === totalPages || isFetching}
+        >
+          ←
+        </button>
+      </div>
     );
   }
 );

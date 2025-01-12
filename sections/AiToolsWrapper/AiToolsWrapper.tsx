@@ -41,12 +41,15 @@ const AiToolsWrapper: React.FC<AiToolsWrapperProps> = ({
     <>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <AiToolsList loading={loading} error={error} data={data?.data} />
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-        isFetching={isFetching || loading}
-      />
+
+      {!loading && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          isFetching={isFetching}
+        />
+      )}
     </>
   );
 };
