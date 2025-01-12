@@ -1,26 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
-import { getSession, signIn } from "next-auth/react";
-
-import { useForm } from "react-hook-form";
-
-import styles from "./SignIn.module.css";
+import React from "react";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
 import { Fieldset, Input, Stack } from "@chakra-ui/react";
 import {
   PasswordInput,
   PasswordStrengthMeter,
 } from "@/components/ui/password-input";
-import Link from "next/link";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Button } from "@/components/ui/button";
+import { Field } from "@/components/ui/field";
+import Link from "next/link";
+import { useSigninForm } from "./hooks/useSigninForm";
+import { FORM_LABELS, FORM_ERRORS } from "./constants/data";
+import ActionButton from "./components/ActionButton";
 import LoginIcon from "@/components/Svgs/LoginIcon/LoginIcon";
 import UserRegisterIcon from "@/components/Svgs/UserRegisterIcon/UserRegisterIcon";
-import { Field } from "@/components/ui/field";
+import ErrorMessage from "./components/ErrorMessage";
+import styles from "./SignIn.module.css";
 import { getPasswordStrength } from "./utils/getPasswordStrength";
 import { validatePassword } from "./utils/validatePassword";
-import { useRouter } from "next/navigation";
 
 interface FormValues {
   username: string;
@@ -33,33 +32,8 @@ const Signin = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<FormValues>({});
-
-  const router = useRouter();
-
-  const [error, setError] = useState("");
-
-  const onSubmit = async (data: FormValues) => {
-    const result = await signIn("credentials", {
-      redirect: false,
-      username: data.username,
-      password: data.password,
-    });
-
-    if (result?.error) {
-      setError("فشل تسجيل الدخول، يرجى التحقق من بيانات الاعتماد.");
-    } else if (result?.ok) {
-      const session = await getSession();
-      // console.log(session, "session");
-
-      const userId = session?.user?.id; // Ensure that the `user` object is correct
-      if (userId) {
-        router.push(`/`);
-      } else {
-        setError("حدث خطأ غير متوقع");
-      }
-    }
-  };
+  } = useForm<FormValues>();
+  const { onSubmit, error } = useSigninForm();
 
   return (
     <div className={styles["signin-container"]}>
@@ -69,13 +43,13 @@ const Signin = () => {
             <Fieldset.Root size="lg" maxW="md">
               <Stack mb="35px">
                 <Fieldset.Legend className={styles["title"]}>
-                  تسجيل دخول
+                  {FORM_LABELS.LOGIN}{" "}
                 </Fieldset.Legend>
               </Stack>
 
               <Fieldset.Content className={styles["content"]}>
                 <Field
-                  label="اسم المستخدم أو البريد الإلكتروني"
+                  label={FORM_LABELS.USERNAME_EMAIL}
                   invalid={!!errors.username}
                   errorText={errors.username?.message}
                   required
@@ -83,13 +57,13 @@ const Signin = () => {
                   {/* <EmailIcon /> */}
                   <Input
                     {...register("username", {
-                      required: "اسم المستخدم أو البريد الإلكتروني مطلوب",
+                      required: FORM_ERRORS.USERNAME_REQUIRED,
                     })}
                   />
                 </Field>
 
                 <Field
-                  label="كلمة المرور"
+                  label={FORM_LABELS.PASSWORD}
                   invalid={!!errors.password}
                   errorText={errors.password?.message}
                   required
@@ -100,7 +74,7 @@ const Signin = () => {
                       visibility="readonly"
                       // onVisibleChange={(e) => console.log(e, "test change")}
                       {...register("password", {
-                        required: "كلمة المرور مطلوبة",
+                        required: FORM_ERRORS.PASSWORD_REQUIRED,
                         validate: validatePassword,
                       })}
                     />
@@ -110,28 +84,32 @@ const Signin = () => {
                   </Stack>
                 </Field>
 
-                <Link href="https://google.com">نسيت كلمة المرور؟</Link>
+                <Link href="https://google.com">
+                  {FORM_LABELS.FORGOT_PASSWORD}
+                </Link>
 
-                <Checkbox dir="rtl">البقاء متصلاً</Checkbox>
+                <Checkbox dir="rtl" required>
+                  {FORM_LABELS.STAY_CONNECTED}
+                </Checkbox>
               </Fieldset.Content>
 
+              {error && <ErrorMessage message={error} />}
+
               <Stack direction="row" margin="22px 43px">
-                <Button
+                <ActionButton
                   type="submit"
-                  alignSelf="flex-start"
+                  icon={<LoginIcon />}
                   className={styles["btn-submit"]}
                 >
-                  <LoginIcon />
-                  تسجيل الدخول
-                </Button>
-                <Button
+                  {FORM_LABELS.LOGIN}
+                </ActionButton>
+                <ActionButton
                   type="button"
-                  alignSelf="flex-start"
+                  icon={<UserRegisterIcon />}
                   className={styles["btn"]}
                 >
-                  <UserRegisterIcon />
-                  إنشاء حساب جديد
-                </Button>
+                  {FORM_LABELS.CREATE_ACCOUNT}
+                </ActionButton>
               </Stack>
             </Fieldset.Root>
           </form>
