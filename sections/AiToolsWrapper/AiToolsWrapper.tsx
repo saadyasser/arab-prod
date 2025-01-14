@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
-
-import { useFetchData } from "@/hooks/useFetchData";
+import React, { useCallback, useState } from "react";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { AiToolsResponse } from "@/types/aiTools";
 import AiToolsList from "@/app/ai-tools/components/AiToolsList";
 import Pagination from "@/app/ai-tools/components/Pagination";
@@ -10,44 +9,66 @@ import Header from "@/app/ai-tools/components/Header";
 
 interface AiToolsWrapperProps {
   initialSearchTerm?: string;
-  initialPage?: number;
 }
 
 const AiToolsWrapper: React.FC<AiToolsWrapperProps> = ({
   initialSearchTerm = "",
-  initialPage = 1,
 }) => {
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
-  const [currentPage, setCurrentPage] = useState(initialPage);
   const pageSize = 12;
 
-  const handlePageChange = useCallback((newPage: number) => {
-    setCurrentPage(newPage);
-  }, []);
+  const fetchAiTools = async ({ pageParam = 1 }: { pageParam?: number }) => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/aitools?search=${searchTerm}&page=${pageParam}&page_size=${pageSize}`
+    );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data: AiToolsResponse = await response.json();
+    return data;
+  };
 
-  const { data, loading, error, isFetching } = useFetchData<AiToolsResponse>({
-    endpoint: "/aitools",
-    params: { search: searchTerm, page: currentPage, page_size: pageSize },
-    queryKey: ["aitools", searchTerm, currentPage],
-    queryOptions: {
-      staleTime: 0,
-      keepPreviousData: true,
+  const {
+    data,
+    error,
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
+    queryKey: ["aitools", searchTerm],
+    queryFn: fetchAiTools,
+    getNextPageParam: (lastPage: AiToolsResponse) => {
+      if (lastPage.current_page < lastPage.total_pages) {
+        return lastPage.current_page + 1;
+      }
+      return undefined;
     },
+    staleTime: 0,
+    keepPreviousData: true,
   });
 
-  const totalPages = data?.total_pages || 1;
+  const handlePageChange = useCallback(() => {
+    if (hasNextPage) {
+      fetchNextPage();
+    }
+  }, [fetchNextPage, hasNextPage]);
+
+  const totalPages = data?.pages[0]?.total_pages || 1;
+  const aiToolsData = data?.pages.flatMap((page) => page.data) || [];
 
   return (
     <>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <AiToolsList loading={loading} error={error} data={data?.data} />
 
-      {!loading && (
+      <AiToolsList loading={isLoading} error={error} data={aiToolsData} />
+
+      {!isLoading && (
         <Pagination
-          currentPage={currentPage}
+          currentPage={data?.pages.length || 1}
           totalPages={totalPages}
           onPageChange={handlePageChange}
-          isFetching={isFetching}
+          isFetching={isFetchingNextPage}
         />
       )}
     </>

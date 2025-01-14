@@ -1,19 +1,32 @@
 import Skeleton from "@/components/Skeleton/Skeleton";
 import React from "react";
+import styles from "../CardAi/CardAi.module.css"; // Assuming a CSS module for the other styles
 
 const LoadingCardAi = () => {
   return (
     <div className={styles["card-ai"]}>
       <div className={styles["avatar-favorite"]}>
-        <Skeleton className="w-8 h-8 rounded-full" />
+        <Skeleton
+          style={{ width: "2rem", height: "2rem", borderRadius: "50%" }}
+        />
       </div>
-      <Skeleton className="w-full h-24 rounded" />
+      <Skeleton
+        style={{ width: "100%", height: "6rem", borderRadius: "0.25rem" }}
+      />
       <div className={styles["content"]}>
-        <Skeleton className="h-6 w-3/4 mb-2" />
-        <Skeleton className="h-4 w-1/2 mb-4" />
-        <Skeleton className="h-4 w-full mb-4" />
-        <Skeleton className="h-4 w-5/6 mb-2" />
-        <Skeleton className="h-10 w-1/4" />
+        <Skeleton
+          style={{ height: "1.5rem", width: "75%", marginBottom: "0.5rem" }}
+        />
+        <Skeleton
+          style={{ height: "1rem", width: "50%", marginBottom: "1rem" }}
+        />
+        <Skeleton
+          style={{ height: "1rem", width: "83.3333%", marginBottom: "0.5rem" }}
+        />
+        <Skeleton
+          style={{ height: "1rem", width: "100%", marginBottom: "1rem" }}
+        />
+        <Skeleton style={{ height: "2.5rem", width: "25%" }} />
       </div>
     </div>
   );
