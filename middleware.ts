@@ -4,16 +4,20 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(request: NextRequest): NextResponse {
   const token = request.cookies.get("next-auth.session-token"); // Check for authentication token
 
-  if (!token) {
-    // Redirect to the login page if token is not present
+  // If token exists, redirect to the profile page (or any other page you'd like)
+  if (token && request.nextUrl.pathname === "/auth/signin") {
+    return NextResponse.redirect(new URL("/profile", request.url));
+  }
+
+  // If the token does not exist, proceed with the current behavior
+  if (!token && request.nextUrl.pathname !== "/auth/signin") {
     return NextResponse.redirect(new URL("/auth/signin", request.url));
   }
 
-  // If the token exists, allow the request to continue
   return NextResponse.next();
 }
 
-// Define which paths the middleware should apply to (e.g., /dashboard, /profile)
+// Define which paths the middleware should apply to (e.g., /auth/signin, /dashboard, /profile)
 export const config = {
-  matcher: ["/dashboard", "/profile"],
+  matcher: ["/auth/signin", "/dashboard", "/profile"],
 };

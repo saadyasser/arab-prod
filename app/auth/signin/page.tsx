@@ -20,8 +20,6 @@ import ErrorMessage from "./components/ErrorMessage";
 import styles from "./SignIn.module.css";
 import { getPasswordStrength } from "./utils/getPasswordStrength";
 import { validatePassword } from "./utils/validatePassword";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 interface FormValues {
   username: string;
@@ -29,8 +27,6 @@ interface FormValues {
 }
 
 const Signin = () => {
-  const { status } = useSession();
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -38,13 +34,6 @@ const Signin = () => {
     formState: { errors },
   } = useForm<FormValues>();
   const { onSubmit, error } = useSigninForm();
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      // Redirect the user to the profile page if they are logged in
-      router.push("/profile");
-    }
-  }, [status, router]);
 
   return (
     <div className={styles["signin-container"]}>
@@ -112,7 +101,7 @@ const Signin = () => {
                   icon={<LoginIcon />}
                   className={styles["btn-submit"]}
                 >
-                  {status === "loading" ? "Signing..." : FORM_LABELS.LOGIN}
+                  {FORM_LABELS.LOGIN}
                 </ActionButton>
                 <ActionButton
                   type="button"
