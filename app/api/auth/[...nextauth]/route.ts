@@ -1,16 +1,41 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { JWT } from "next-auth/jwt"; // Correct import for JWT
 
-export const authOptions = {
+// Define custom types for `JWT` and `Session`
+interface MyUser {
+  id: string;
+  username: string;
+  email: string;
+}
+
+interface MyToken extends JWT {
+  id?: string;
+  username?: string;
+  email?: string;
+}
+
+interface MySession extends Session {
+  user: {
+    id?: string;
+    username?: string;
+    email?: string;
+  };
+}
+
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
       credentials: {
+        id: { label: "ID", type: "text" },
         username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const res = await fetch("http://localhost:3000/api/users", {
+        console.log(credentials, "test sign");
+
+        const res = await fetch(`http://localhost:3000/api/users`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -22,8 +47,6 @@ export const authOptions = {
         });
 
         const user = await res.json();
-
-        console.log(user, "user");
 
         if (user.success) {
           return {
@@ -41,7 +64,8 @@ export const authOptions = {
     signIn: "/auth/signin",
   },
   callbacks: {
-    async jwt({ token, user }) {
+    // Type the jwt callback with `MyToken` and `MyUser`
+    async jwt({ token, user }: { token: MyToken; user?: MyUser }) {
       if (user) {
         token.id = user.id;
         token.username = user.username;
@@ -49,7 +73,8 @@ export const authOptions = {
       }
       return token;
     },
-    async session({ session, token }) {
+    // Type the session callback with `MySession` and `MyToken`
+    async session({ session, token }: { session: MySession; token: MyToken }) {
       if (token) {
         session.user.id = token.id;
         session.user.username = token.username;

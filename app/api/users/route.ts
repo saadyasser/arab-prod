@@ -1,4 +1,12 @@
 import jwt from "jsonwebtoken";
+import { NextRequest } from "next/server";
+
+interface userType {
+  id: number;
+  username: string;
+  email: string;
+  password: string;
+}
 
 const users = [
   {
@@ -15,7 +23,7 @@ const users = [
   },
 ];
 
-const generateToken = (user) => {
+const generateToken = (user: userType) => {
   const payload = { id: user.id, username: user.username };
   const secret = "your-secret-key";
   const options = { expiresIn: "1h" };
@@ -23,7 +31,7 @@ const generateToken = (user) => {
   return jwt.sign(payload, secret, options);
 };
 
-export async function POST(req) {
+export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { username, password } = body;

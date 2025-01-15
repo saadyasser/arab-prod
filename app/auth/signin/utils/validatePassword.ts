@@ -1,6 +1,6 @@
 import { getPasswordStrength } from "./getPasswordStrength";
 
-export const validatePassword = (value) => {
+export const validatePassword = (value: string) => {
   const password = getPasswordStrength(value);
   if (password === 0) {
     return "كلمة المرور مطلوبة";

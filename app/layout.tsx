@@ -9,6 +9,7 @@ import "./globals.css";
 import NavBar from "@/components/NavBar/NavBar";
 import Footer from "@/sections/Footer/Footer";
 import Banner from "@/components/Banner";
+import { SessionProvider } from "next-auth/react";
 
 const tajawal = Tajawal({
   subsets: ["arabic"],
@@ -22,18 +23,20 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="ar" dir="rtl">
       <body className={tajawal.className}>
-        <QueryClientProvider client={queryClient}>
-          <Provider>
-            <Banner
-              title="خصومات بنسبة 20% على الكورسات"
-              startAt="2024-12-20T12:26:49.668Z"
-              endAt="2024-12-28T12:26:49.668Z"
-            />
-            <NavBar />
-            <main>{children}</main>
-            <Footer />
-          </Provider>
-        </QueryClientProvider>
+        <SessionProvider>
+          <QueryClientProvider client={queryClient}>
+            <Provider>
+              <Banner
+                title="خصومات بنسبة 20% على الكورسات"
+                startAt="2024-12-20T12:26:49.668Z"
+                endAt="2024-12-28T12:26:49.668Z"
+              />
+              <NavBar />
+              <main>{children}</main>
+              <Footer />
+            </Provider>
+          </QueryClientProvider>
+        </SessionProvider>
       </body>
     </html>
   );

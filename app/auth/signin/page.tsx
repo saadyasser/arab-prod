@@ -20,6 +20,7 @@ import ErrorMessage from "./components/ErrorMessage";
 import styles from "./SignIn.module.css";
 import { getPasswordStrength } from "./utils/getPasswordStrength";
 import { validatePassword } from "./utils/validatePassword";
+import { useSession } from "next-auth/react";
 
 interface FormValues {
   username: string;
@@ -27,6 +28,7 @@ interface FormValues {
 }
 
 const Signin = () => {
+  const { status } = useSession();
   const {
     register,
     handleSubmit,
@@ -101,7 +103,7 @@ const Signin = () => {
                   icon={<LoginIcon />}
                   className={styles["btn-submit"]}
                 >
-                  {FORM_LABELS.LOGIN}
+                  {status === "loading" ? "Signing..." : FORM_LABELS.LOGIN}
                 </ActionButton>
                 <ActionButton
                   type="button"
