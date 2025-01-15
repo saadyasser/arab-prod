@@ -1,0 +1,16 @@
+.skeleton {
+    animation: pulse 1.5s ease-in-out infinite;
+    background-color: #e8ebf0; /* Tailwind class: bg-gray-300 */
+    border-radius: 0.25rem; /* Tailwind class: rounded */
+  }
+  
+  /* Tailwind's animate-pulse equivalent */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
