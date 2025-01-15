@@ -33,8 +33,6 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        console.log(credentials, "test sign");
-
         const res = await fetch(`http://localhost:3000/api/users`, {
           method: "POST",
           headers: {
