@@ -1,4 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+"use client";
+
+import React, { useMemo } from "react";
 import styles from "../AiTools.module.css";
 import PageButton from "./PageButton";
 
@@ -6,27 +8,14 @@ type PaginationProps = {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-  isFetching: boolean; // To disable buttons during fetching
+  isFetching: boolean;
 };
 
 const Pagination: React.FC<PaginationProps> = React.memo(
   ({ currentPage, totalPages, onPageChange, isFetching }) => {
-    const [allPages, setAllPages] = useState<number[]>(() => {
-      return Array.from({ length: totalPages }, (_, i) => i + 1);
-    });
-
-    // useEffect(() => {
-    //   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
-    //   console.log(isFetching, "isFetching");
-
-    //   setAllPages(pageNumbers);
-    // }, [totalPages]);
-
-    // Precompute page numbers
     const pageNumbers = useMemo(() => {
-      const visiblePages = 3;
+      const visiblePages = 5;
       const half = Math.floor(visiblePages / 2);
-
       let start = Math.max(1, currentPage - half);
       let end = start + visiblePages - 1;
 
@@ -40,15 +29,14 @@ const Pagination: React.FC<PaginationProps> = React.memo(
 
     return (
       <div className={styles["pagination"]}>
-        {/* Previous Button */}
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1 || isFetching}
         >
-          →
+          ←
         </button>
 
-        {allPages.map((page) => (
+        {pageNumbers.map((page) => (
           <PageButton
             key={page}
             page={page}
@@ -57,16 +45,11 @@ const Pagination: React.FC<PaginationProps> = React.memo(
           />
         ))}
 
-        {/* {isFetching && (
-          <span className={styles["loading-indicator"]}>Loading...</span>
-        )} */}
-
-        {/* Next Button */}
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages || isFetching}
         >
-          ←
+          →
         </button>
       </div>
     );

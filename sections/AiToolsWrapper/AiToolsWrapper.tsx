@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { AiToolsResponse } from "@/types/aiTools";
 import AiToolsList from "@/app/ai-tools/components/AiToolsList";
 import Pagination from "@/app/ai-tools/components/Pagination";
@@ -15,11 +15,12 @@ const AiToolsWrapper: React.FC<AiToolsWrapperProps> = ({
   initialSearchTerm = "",
 }) => {
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+  const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 12;
 
-  const fetchAiTools = async ({ pageParam = 1 }: { pageParam?: number }) => {
+  const fetchAiTools = async () => {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/aitools?search=${searchTerm}&page=${pageParam}&page_size=${pageSize}`
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/aitools?search=${searchTerm}&page=${currentPage}&page_size=${pageSize}`
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -28,34 +29,18 @@ const AiToolsWrapper: React.FC<AiToolsWrapperProps> = ({
     return data;
   };
 
-  const {
-    data,
-    error,
-    isLoading,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-  } = useInfiniteQuery({
-    queryKey: ["aitools", searchTerm],
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["aitools", searchTerm, currentPage],
     queryFn: fetchAiTools,
-    getNextPageParam: (lastPage: AiToolsResponse) => {
-      if (lastPage.current_page < lastPage.total_pages) {
-        return lastPage.current_page + 1;
-      }
-      return undefined;
-    },
-    staleTime: 0,
     keepPreviousData: true,
   });
 
-  const handlePageChange = useCallback(() => {
-    if (hasNextPage) {
-      fetchNextPage();
-    }
-  }, [fetchNextPage, hasNextPage]);
+  const totalPages = data?.total_pages || 1;
+  const aiToolsData = data?.data || [];
 
-  const totalPages = data?.pages[0]?.total_pages || 1;
-  const aiToolsData = data?.pages.flatMap((page) => page.data) || [];
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
 
   return (
     <>
@@ -65,10 +50,10 @@ const AiToolsWrapper: React.FC<AiToolsWrapperProps> = ({
 
       {!isLoading && (
         <Pagination
-          currentPage={data?.pages.length || 1}
+          currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
-          isFetching={isFetchingNextPage}
+          isFetching={isLoading}
         />
       )}
     </>
