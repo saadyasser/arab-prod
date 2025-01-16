@@ -8,6 +8,7 @@ import BookIcon from "../Svgs/BookIcon/BookIcon";
 import TestQuizIcon from "../Svgs/TestQuizIcon/TestQuizIcon";
 import KisspngEducationIcon from "../Svgs/KisspndEducationIcon/KisspngEducationIcon";
 import MoreIcon from "../Svgs/MoreIcon/MoreIcon";
+import "./CardCarousel.css";
 
 const cardData = [
   {

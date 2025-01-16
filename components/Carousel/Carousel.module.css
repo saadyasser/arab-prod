@@ -16,7 +16,10 @@
 
 .carousel-items {
   width: calc(100% - 20px);
-  margin-inline: auto;
+  margin-inline: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 1px 20px 3px rgba(0, 0, 0, 0.25);
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -27,16 +30,15 @@
   gap: 30px;
 }
 
-.carousel-item-4, .carousel-item-3 {
+.carousel-item-4,
+.carousel-item-3 {
   flex-shrink: 0;
   transition: transform 0.5s;
 }
 .carousel-item-4 {
   flex-basis: calc((100% / 4) - (90px / 4));
-
 }
 .carousel-item-3 {
-
   flex-basis: calc((100% / 3) - (60px / 3));
 }
 
@@ -48,33 +50,30 @@
   cursor: pointer;
 }
 
-
 .arrow-left {
-  transform: scale(.8);
+  transform: scale(0.8);
   position: absolute;
   left: -10px;
 }
 
 .arrow-right {
-  transform: scale(.8);
+  transform: scale(0.8);
 
   position: absolute;
   right: -10px;
 }
 
-
-
-
 @media (max-width: 768px) {
-  .carousel-item-3, .carousel-item-4 {
+  .carousel-item-3,
+  .carousel-item-4 {
     /* 2 columns for tablets */
     flex-basis: 100%;
-
   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .carousel-item-3, .carousel-item-4 {
+  .carousel-item-3,
+  .carousel-item-4 {
     flex-basis: calc((100% / 2) - 15px);
   }
   .carousel-container {
@@ -82,9 +81,11 @@
   }
   .carousel-items {
     width: 93%;
+    margin-inline: 80px;
   }
-  .arrow-left, .arrow-right {
-    transform: scale(.7);
+  .arrow-left,
+  .arrow-right {
+    transform: scale(0.7);
   }
   .arrow-left {
     left: 0px;
@@ -100,8 +101,10 @@
   }
   .carousel-items {
     width: calc(100% - 40px);
+    margin-inline: 200px;
   }
-  .arrow-left, .arrow-right {
+  .arrow-left,
+  .arrow-right {
     transform: scale(1);
   }
   .arrow-left {
