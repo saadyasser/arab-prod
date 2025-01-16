@@ -29,11 +29,11 @@ const ParentLayout: React.FC = () => {
           description="تيح لك لوحة الشرف معرفة ترتيبك بين الطلاب الذين اجتازوا الامتحان، مما يمنحك فرصة مميزة للتميز والإشادة بإنجازك أمام المجتمع الأكاديمي وزملائك"
         />
         <div className="btn-wrapper">
-              <Button className="explore-button">
-                <ExamsSectionIcon />
-                قسم الامتحانات
-              </Button>
-            </div>
+          <Button className="explore-button">
+            <ExamsSectionIcon />
+            قسم الامتحانات
+          </Button>
+        </div>
       </div>
     </div>
   );
