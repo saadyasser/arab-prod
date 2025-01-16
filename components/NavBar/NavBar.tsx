@@ -5,8 +5,7 @@ import BurgorIcon from "../Svgs/BurgorIcon/BurgorIcons";
 import "./NavBar.css";
 import Link from "next/link";
 import Logo from "../Logo/Logo";
-import LogoutIcon from "../Svgs/LogoutIcon/LogoutIcon";
-import UserIcon from "../Svgs/UserIcon/UserIcon";
+import UserCard from "../UserCard/UserCard";
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -67,8 +66,9 @@ const NavBar = () => {
               }}
             />
           )}
-          <UserIcon className="user-icon" />
-          <LogoutIcon className="logout-icon" />
+          <UserCard />
+          {/* <UserIcon className="user-icon" />
+          <LogoutIcon className="logout-icon" /> */}
         </div>
       </div>
       {mobileMenuOpen && (

@@ -13,4 +13,5 @@ export const FORM_LABELS = {
   FORGOT_PASSWORD: "نسيت كلمة المرور؟",
   STAY_CONNECTED: "البقاء متصلاً",
   CREATE_ACCOUNT: "إنشاء حساب جديد",
+  Google_LOGIN: "Google",
 };

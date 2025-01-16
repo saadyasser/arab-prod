@@ -20,6 +20,7 @@ import ErrorMessage from "./components/ErrorMessage";
 import styles from "./SignIn.module.css";
 import { getPasswordStrength } from "./utils/getPasswordStrength";
 import { validatePassword } from "./utils/validatePassword";
+import { signIn } from "next-auth/react";
 
 interface FormValues {
   username: string;
@@ -113,6 +114,13 @@ const Signin = () => {
               </Stack>
             </Fieldset.Root>
           </form>
+          <button
+            onClick={() => {
+              signIn("google");
+            }}
+          >
+            Signin With Google
+          </button>
         </div>
         <div className={styles["sigin-image"]}>
           <Image

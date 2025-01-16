@@ -1,4 +1,11 @@
-export const LogoutIcon = (props: any) => {
+interface LoginIconProps {
+  handleLogOut: () => void;
+  className: string;
+}
+export const LogoutIcon: React.FC<LoginIconProps> = ({
+  handleLogOut,
+  className,
+}) => {
   return (
     <svg
       width="49"
@@ -6,7 +13,8 @@ export const LogoutIcon = (props: any) => {
       viewBox="0 0 49 43"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      className={className}
+      onClick={handleLogOut}
     >
       <g filter="url(#filter0_d_596_821)">
         <path

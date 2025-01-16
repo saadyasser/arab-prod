@@ -1,5 +1,6 @@
 import NextAuth, { NextAuthOptions, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import { JWT } from "next-auth/jwt"; // Correct import for JWT
 
 // Define custom types for `JWT` and `Session`
@@ -17,9 +18,9 @@ interface MyToken extends JWT {
 
 interface MySession extends Session {
   user: {
-    id?: string;
-    username?: string;
-    email?: string;
+    id: string;
+    username: string;
+    email: string;
   };
 }
 
@@ -28,7 +29,6 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        id: { label: "ID", type: "text" },
         username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
@@ -57,13 +57,16 @@ export const authOptions: NextAuthOptions = {
         }
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    }),
   ],
   pages: {
     signIn: "/auth/signin",
   },
   callbacks: {
-    // Type the jwt callback with `MyToken` and `MyUser`
-    async jwt({ token, user }: { token: MyToken; user?: MyUser }) {
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
         token.username = user.username;
@@ -71,12 +74,13 @@ export const authOptions: NextAuthOptions = {
       }
       return token;
     },
-    // Type the session callback with `MySession` and `MyToken`
-    async session({ session, token }: { session: MySession; token: MyToken }) {
+    async session({ session, token }) {
       if (token) {
-        session.user.id = token.id;
-        session.user.username = token.username;
-        session.user.email = token.email;
+        session.user = {
+          id: token.id as string,
+          username: token.username as string,
+          email: token.email as string,
+        };
       }
       return session;
     },
