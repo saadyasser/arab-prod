@@ -8,6 +8,7 @@ import Pagination from "@/app/ai-tools/components/Pagination";
 import Header from "@/app/ai-tools/components/Header";
 import { notFound } from "next/navigation";
 import NotFound from "@/app/ai-tools/not-found";
+import useDebounce from "@/hooks/useDebounce/useDebounce";
 
 interface AiToolsWrapperProps {
   initialSearchTerm?: string;
@@ -21,10 +22,11 @@ const AiToolsWrapper: React.FC<AiToolsWrapperProps> = ({
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(12);
+  const searchValue = useDebounce(searchTerm, 700);
 
   const fetchAiTools = async () => {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/aitools?search=${searchTerm}&page=${currentPage}&page_size=${pageSize}`
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/aitools?search=${searchValue}&page=${currentPage}&page_size=${pageSize}`
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -34,7 +36,7 @@ const AiToolsWrapper: React.FC<AiToolsWrapperProps> = ({
   };
 
   const { data, error, isLoading } = useQuery({
-    queryKey: ["aitools", searchTerm, currentPage, pageSize],
+    queryKey: ["aitools", searchValue, currentPage, pageSize],
     queryFn: fetchAiTools,
     keepPreviousData: true,
   });
