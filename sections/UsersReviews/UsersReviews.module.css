@@ -4,6 +4,15 @@
   padding: 111px 0;
 }
 
+.skeleton-cards {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 70px;
+  padding: 100px;
+}
+
 .users-reviews .card {
   position: relative;
   padding: 50px 25px 17px 36px;

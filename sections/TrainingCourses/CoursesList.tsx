@@ -1,5 +1,6 @@
 import Carousel from "@/components/Carousel/Carousel";
 import Course from "@/components/Course/Course";
+import LoadingCard from "@/components/LoadingCard/LoadingCard";
 import { CourseType } from "@/types/course";
 import React from "react";
 
@@ -19,10 +20,14 @@ const CoursesList = (props: CourseItem) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          fontSize: "30px",
+          gap: "23px",
+          width: "100%",
+          padding: "30px 100px",
         }}
       >
-        تحميل...
+        {[1, 1, 1].map((item, index) => (
+          <LoadingCard key={index} />
+        ))}
       </div>
     );
   if (error)

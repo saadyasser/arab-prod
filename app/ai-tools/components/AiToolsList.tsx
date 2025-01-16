@@ -15,7 +15,7 @@ const AiToolsList: React.FC<AiToolsListProps> = ({ loading, error, data }) => {
     return (
       <div className={styles["ai-tools-list"]}>
         {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, index) => (
-          <LoadingCardAi />
+          <LoadingCardAi key={index} />
         ))}
       </div>
     );

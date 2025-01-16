@@ -12,6 +12,7 @@ import Carousel from "@/components/Carousel/Carousel";
 import styles from "./UsersReviews.module.css";
 import { useFetchData } from "@/hooks/useFetchData";
 import { ReviewsResponse } from "@/types/userReviews";
+import LoadingCard from "@/components/LoadingCard/LoadingCard";
 
 const UsersReviews = () => {
   const { data, loading, error } = useFetchData<ReviewsResponse>({
@@ -26,16 +27,10 @@ const UsersReviews = () => {
 
   if (loading)
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontSize: "30px",
-          height: "100vh",
-        }}
-      >
-        تحميل...
+      <div className={styles["skeleton-cards"]}>
+        {[1, 1, 1].map((item, index) => (
+          <LoadingCard key={index} />
+        ))}
       </div>
     );
   if (error)
