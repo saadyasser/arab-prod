@@ -6,25 +6,29 @@ import styles from "./CardAi.module.css";
 import { Button } from "../../../../components/ui/button";
 import MoreIcon from "../../../../components/Svgs/MoreIcon/MoreIcon";
 import FavoriteDoneIcon from "@/components/Svgs/FavoriteDoneIcon/FavoriteDoneIcon";
+import FavoriteIcon from "@/components/Svgs/FavoriteIcon/FavoriteIcon";
+import { AiToolsType } from "@/types/aiTools";
 
 interface AiToolType {
-  tool: {
-    title: string;
-    imageURL: string;
-    description: string;
-    tags: string[];
-    pricing: string;
-    subject: string[];
-  };
+  tool: AiToolsType;
   image: string;
+  isFavorite: boolean | undefined;
+  handleToggleFavorites: (toolId: number) => void;
 }
 
 const CardAi: React.FC<AiToolType> = (props) => {
-  const { imageURL, title, tags, description, pricing, subject } = props.tool;
+  const { tool_id, imageURL, title, tags, description, pricing, subject } =
+    props.tool;
+
+  console.log(props.isFavorite, "props.isFavorite");
+
   return (
     <div className={styles["card-ai"]}>
-      <div className={styles["avatar-favorite"]}>
-        <FavoriteDoneIcon />
+      <div
+        className={styles["avatar-favorite"]}
+        onClick={() => props.handleToggleFavorites(tool_id)}
+      >
+        {props.isFavorite ? <FavoriteDoneIcon /> : <FavoriteIcon />}
       </div>
       <Image
         src={props.image}
