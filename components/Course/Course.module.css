@@ -19,7 +19,7 @@
   font-weight: 700;
   gap: 20px;
   color: #713488;
-  min-height: 104px;
+  min-height: 138px;
   /* background-color: red; */
 }
 
@@ -45,7 +45,7 @@
 
 @media screen and (min-width: 768px) {
   .card-title {
-    min-height: 104px;
+    /* min-height: 138px; */
     justify-content: space-between;
   }
   .card-body {
@@ -58,6 +58,6 @@
 
 @media screen and (min-width: 1024px) {
   .card-title {
-    min-height: 70px;
+    /* min-height: 138px; */
   }
 }

@@ -8,27 +8,33 @@ import ArrowButton from "@/components/ArrowButton/ArrowButton";
 interface Slide {
   title: string;
   description1: string;
-  description2?: string
+  description2?: string;
   buttonText: string;
-  icon?: React.ReactNode
+  icon?: React.ReactNode;
   backgroundImage: string; // Background image for each slide
 }
 
 const slides: Slide[] = [
   {
-    title: "تعمل الأكاديمية العربية للبرمجة كجسر يربط العقول التكنولوجية العربية في المهجر بالطلبة العرب أينما كانوا",
-    description1: "تقدم الأكاديمية العربية للبرمجة تجربة تعلم متميزة من خلال مجموعة من الدروس والمناهج الاحترافية بجودة عالية",
-    description2: "وأسلوب تدريسي ممتع يتناسب مع مختلف الطرق التعليمية للمبتدئين والمحترفين بإشراف مدربين ومبرمجين ذوي خبرة عالمية في المجال التقني",
+    title:
+      "تعمل الأكاديمية العربية للبرمجة كجسر يربط العقول التكنولوجية العربية في المهجر بالطلبة العرب أينما كانوا",
+    description1:
+      "تقدم الأكاديمية العربية للبرمجة تجربة تعلم متميزة من خلال مجموعة من الدروس والمناهج الاحترافية بجودة عالية",
+    description2:
+      "وأسلوب تدريسي ممتع يتناسب مع مختلف الطرق التعليمية للمبتدئين والمحترفين بإشراف مدربين ومبرمجين ذوي خبرة عالمية في المجال التقني",
     buttonText: "المسارات التعليمية",
-    icon: <ChackBoard/>,
+    icon: <ChackBoard />,
     backgroundImage: "/images/header-image.jpg", // Replace with your image paths
   },
   {
-    title: "تسعى أكاديمية البرمجة العربية إلى تقديم أفضل البرامج التعليمية المتخصصة في مجالات البرمجة والتكنولوجيا الحديثة",
-    description1: "تقدم الأكاديمية مناهج تعليمية متكاملة، تعتمد على أساليب تعلم مبتكرة ودورات تدريبية تفاعلية تلبي احتياجات الطلاب من مختلف المستويات",
-    description2: "نحن نوفر بيئة تعليمية مرنة، بإشراف خبراء متميزين في مجالات البرمجة والتطوير، لتمكين المتعلمين من تحقيق أهدافهم المهنية في مجال التكنولوجيا",
+    title:
+      "تسعى أكاديمية البرمجة العربية إلى تقديم أفضل البرامج التعليمية المتخصصة في مجالات البرمجة والتكنولوجيا الحديثة",
+    description1:
+      "تقدم الأكاديمية مناهج تعليمية متكاملة، تعتمد على أساليب تعلم مبتكرة ودورات تدريبية تفاعلية تلبي احتياجات الطلاب من مختلف المستويات",
+    description2:
+      "نحن نوفر بيئة تعليمية مرنة، بإشراف خبراء متميزين في مجالات البرمجة والتطوير، لتمكين المتعلمين من تحقيق أهدافهم المهنية في مجال التكنولوجيا",
     buttonText: "البرامج التدريبية",
-    icon: <ChackBoard/>,
+    icon: <ChackBoard />,
     backgroundImage: "/images/human2.jpeg", // Replace with your image paths
   },
 ];
@@ -48,7 +54,9 @@ const HeroSection = () => {
     <section className={styles.heroSection}>
       <div
         className={styles.slider}
-        style={{ backgroundImage: `url(${slides[currentSlide].backgroundImage})` }}
+        style={{
+          backgroundImage: `url(${slides[currentSlide].backgroundImage})`,
+        }}
       >
         <div className={styles.content}>
           {/* Title Section */}
@@ -57,20 +65,25 @@ const HeroSection = () => {
           </div>
           {/* Description + Button Section */}
           <div className={styles.textContainer}>
-            <p className={styles.description1}>{slides[currentSlide].description1}</p>
-            <p className={styles.description2}>{slides[currentSlide].description2}</p>
+            <p className={styles.description1}>
+              {slides[currentSlide].description1}
+            </p>
+            <p className={styles.description2}>
+              {slides[currentSlide].description2}
+            </p>
             <button className={styles.ctaButton}>
-            {slides[currentSlide].icon && <span className={styles.icon}>{slides[currentSlide].icon}</span>}
-            {slides[currentSlide].buttonText}
+              {slides[currentSlide].icon && (
+                <span className={styles.icon}>{slides[currentSlide].icon}</span>
+              )}
+              {slides[currentSlide].buttonText}
             </button>
-
           </div>
         </div>
         <ArrowButton
           direction="left"
           onClick={handlePreviousSlide}
           // size={50}
-          color="#ffffff" 
+          color="#ffffff"
         />
         <ArrowButton
           direction="right"
@@ -80,13 +93,14 @@ const HeroSection = () => {
         />
       </div>
 
-
       {/* Dots */}
       <div className={styles.dots}>
         {slides.map((_, index) => (
           <span
             key={index}
-            className={`${styles.dot} ${index === currentSlide ? styles.activeDot : ""}`}
+            className={`${styles.dot} ${
+              index === currentSlide ? styles.activeDot : ""
+            }`}
             onClick={() => setCurrentSlide(index)}
           ></span>
         ))}
