@@ -1,19 +1,21 @@
 .resourses-carousel-container {
-  position: relative;
+  /* position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column; */
+  margin-top: -50px;
+  /* width: 100%;
+  z-index: 100; */
 }
 
-.carousel-arrow {
+/* .carousel-arrow {
   background-color: #3182ce;
   color: white;
   border-radius: 50%;
   margin: 0 1rem;
   cursor: pointer;
 }
-
 
 @media (max-width: 600px) {
   .resourses-carousel-container {
@@ -31,4 +33,4 @@
   .resourses-carousel-container {
     flex-direction: row;
   }
-}
+} */

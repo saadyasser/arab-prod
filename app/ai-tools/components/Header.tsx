@@ -16,7 +16,11 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, setSearchTerm }) => {
         المفضلة
         <FavoriteIcon />
       </Button>
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <SearchBar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        placeholder="chatgpt...."
+      />
     </div>
   );
 };

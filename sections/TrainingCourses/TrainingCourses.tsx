@@ -6,14 +6,16 @@ import { CourseResponse } from "@/types/course";
 // import { coursesData } from "@/data/courses";
 import { useFetchData } from "@/hooks/useFetchData";
 import CoursesList from "./CoursesList";
+import useDebounce from "@/hooks/useDebounce/useDebounce";
 
 const TrainingCourses = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const searchValue = useDebounce(searchTerm, 700);
 
   const { data, loading, error } = useFetchData<CourseResponse>({
     endpoint: "/courses",
-    params: { search: searchTerm }, // Pass the search term as a parameter
-    queryKey: ["courses", searchTerm],
+    params: { search: searchValue }, // Pass the search term as a parameter
+    queryKey: ["courses", searchValue],
     // queryOptions: {
     //   retry: 2,
     //   staleTime: 1000 * 60 * 5,
@@ -33,7 +35,11 @@ const TrainingCourses = () => {
         <div className={classes["title"]}>
           <h2 style={{ display: "inline-block" }}>الدورات التدريبية</h2>
         </div>
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <SearchBar
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          placeholder="مقدمة لمحرك الألعاب اليونتي ....."
+        />
       </div>
 
       <CoursesList

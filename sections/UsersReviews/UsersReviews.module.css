@@ -4,6 +4,15 @@
   padding: 111px 0;
 }
 
+.skeleton-cards {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 70px;
+  padding: 100px;
+}
+
 .users-reviews .card {
   position: relative;
   padding: 50px 25px 17px 36px;
@@ -27,7 +36,11 @@
   padding: 0 19px;
 }
 .flexbox {
-  margin-top: 67px;
+  margin-top: 40px;
+}
+
+.description {
+  min-height: 96px;
 }
 
 @media (max-width: 1024px) {
@@ -55,5 +68,11 @@
   }
   .flexbox {
     margin-top: 13px;
+  }
+}
+
+@media (max-width: 425px) {
+  .description {
+    min-height: 120px;
   }
 }
