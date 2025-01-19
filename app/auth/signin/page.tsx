@@ -130,7 +130,7 @@ const Signin = () => {
                 signIn("google");
               }}
             >
-              Google Sign In
+              Google
               <span className={styles["btn-icon"]}>G</span>
             </Button>
           </Stack>
