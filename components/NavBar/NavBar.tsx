@@ -1,51 +1,74 @@
 "use client";
 import React, { useState } from "react";
-import Logo1 from "../Svgs/Logo1/Logo1";
 import BurgorIcon from "../Svgs/BurgorIcon/BurgorIcons";
 import "./NavBar.css";
 import Link from "next/link";
 import Logo from "../Logo/Logo";
 import UserCard from "../UserCard/UserCard";
+import ArrowBottom from "../Svgs/ArrowBottom/ArrowBotton";
+import useOutsideClick from "@/hooks/useOutsideClick/useOutsideClick";
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [subMenuOpen, setSubMobileMenuOpen] = useState(false);
+
+  const { isOpen, setIsOpen, ref } = useOutsideClick<HTMLLIElement>(false);
 
   return (
     <nav className="nav">
       <div className="nav-container">
         <Logo width={156} height={30} />
         <ul className="nav-items-desktop">
-          <li>
-            <Link href="/resources">المصادر</Link>
-          </li>
-          <li className="desktop-resources">
-            <div
+          <li ref={ref} className="desktop-resources">
+            <span
               onClick={() => {
-                setSubMobileMenuOpen((prev) => !prev);
+                console.log(isOpen, "is open");
+
+                setIsOpen((prev) => !prev);
               }}
+              className={`desktop-recources-link`}
             >
-              تواصل
-            </div>
-            {subMenuOpen && (
+              <ArrowBottom />
+              المصادر
+            </span>
+            {isOpen && (
               <ul className="nav-sub-list">
                 <li>
-                  <Link href="/resources">المصادر</Link>
+                  <Link href="/blog">المدونة</Link>
                 </li>
                 <li>
-                  <Link href="/contact-us">تواصل</Link>
+                  <Link href="/forum">المنتدى</Link>
                 </li>
                 <li>
-                  <Link href={"/educational-channels"}>قنوات</Link>
+                  <Link href="/word-dictionary">قاموس الكلمات</Link>
                 </li>
                 <li>
-                  <Link href={"/educational-channels"}>قنوات</Link>
+                  <Link href="/short-video-lessons">دروس فيديو قصيرة</Link>
+                </li>
+                <li>
+                  <Link href="/ai-tools-guide">
+                    دليل أدوات الذكاء الاصطناعي
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/tech-question-bank">بنك الأسئلة التقنية</Link>
+                </li>
+                <li>
+                  <Link href="/midjourney-lessons-patterns">
+                    دروس وأنماط الميدجورني
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dad-language">لغة ضاد</Link>
                 </li>
               </ul>
             )}
           </li>
           <li>
-            <Link href={"/educational-channels"}>قنوات تعليمية</Link>
+            <Link href={"/educational-channels"}>المسارات التعليمية</Link>
+          </li>
+          <li>
+            <Link href="/communication">التواصل</Link>
           </li>
         </ul>
         <div className="nav-btns">
@@ -74,35 +97,55 @@ const NavBar = () => {
       {mobileMenuOpen && (
         <ul className="nav-items-mobile">
           <li>
-            <Link href="/resources">المصادر</Link>
+            <Link href={"/educational-channels"}>المسارات التعليمية</Link>
           </li>
+
           <div>
-            <Link
+            <span
               onClick={(e) => {
                 e.preventDefault();
                 setSubMobileMenuOpen((prev) => !prev);
               }}
-              className={subMenuOpen ? "recources-link" : ""}
-              href="/contact-us"
+              className={`recources-link ${subMenuOpen ? "open" : ""}`}
             >
-              تواصل
-            </Link>
+              <ArrowBottom fill={`${!subMenuOpen ? "#713488" : ""}`} />
+              المصادر
+            </span>
             {subMenuOpen && (
               <ul className="nav-sub-list">
                 <li>
-                  <Link href="/resources">المصادر</Link>
+                  <Link href="/blog">المدونة</Link>
                 </li>
                 <li>
-                  <Link href="/contact-us">تواصل</Link>
+                  <Link href="/forum">المنتدى</Link>
                 </li>
                 <li>
-                  <Link href={"/educational-channels"}>قنوات تعليمية</Link>
+                  <Link href="/word-dictionary">قاموس الكلمات</Link>
+                </li>
+                <li>
+                  <Link href="/short-video-lessons">دروس فيديو قصيرة</Link>
+                </li>
+                <li>
+                  <Link href="/ai-tools-guide">
+                    دليل أدوات الذكاء الاصطناعي
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/tech-question-bank">بنك الأسئلة التقنية</Link>
+                </li>
+                <li>
+                  <Link href="/midjourney-lessons-patterns">
+                    دروس وأنماط الميدجورني
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/dad-language">لغة ضاد</Link>
                 </li>
               </ul>
             )}
           </div>
           <li>
-            <Link href={"/educational-channels"}>قنوات تعليمية</Link>
+            <Link href="/communication">التواصل</Link>
           </li>
         </ul>
       )}
