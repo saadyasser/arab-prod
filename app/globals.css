@@ -240,7 +240,6 @@ button.secondary:hover {
     width: var(--button-tropical-green-width-mobile);
     height: var(--button-tropical-green-height-mobile);
   }
-
   .card {
     box-shadow: var(--shadow-mobile);
   }
