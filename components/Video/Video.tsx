@@ -6,7 +6,6 @@ import Docs from "../Svgs/Docs/Docs";
 const Video: React.FC = () => {
   return (
     <div className="design-container">
-      {/* Background Video */}
       <video
         src="/videos/aca-video-desktop.mp4"
         autoPlay
@@ -15,7 +14,6 @@ const Video: React.FC = () => {
         playsInline
         className="background-video desktop-video"
       />
-
       <video
         src="/videos/aca-video-mobile.mp4"
         autoPlay
@@ -24,7 +22,6 @@ const Video: React.FC = () => {
         playsInline
         className="background-video mobile-video"
       />
-
       <div className="content">
         {/* Character Section */}
         <div className="character">

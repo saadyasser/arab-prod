@@ -4,50 +4,16 @@ import React, { useState } from "react";
 import styles from "./HeroSection.module.css";
 import ChackBoard from "../../components/Svgs/ChackBoard/ChackBoard";
 import ArrowButton from "@/components/ArrowButton/ArrowButton";
-
-interface Slide {
-  title: string;
-  description1: string;
-  description2?: string;
-  buttonText: string;
-  icon?: React.ReactNode;
-  backgroundImage: string; // Background image for each slide
-}
-
-const slides: Slide[] = [
-  {
-    title:
-      "تعمل الأكاديمية العربية للبرمجة كجسر يربط العقول التكنولوجية العربية في المهجر بالطلبة العرب أينما كانوا",
-    description1:
-      "تقدم الأكاديمية العربية للبرمجة تجربة تعلم متميزة من خلال مجموعة من الدروس والمناهج الاحترافية بجودة عالية",
-    description2:
-      "وأسلوب تدريسي ممتع يتناسب مع مختلف الطرق التعليمية للمبتدئين والمحترفين بإشراف مدربين ومبرمجين ذوي خبرة عالمية في المجال التقني",
-    buttonText: "المسارات التعليمية",
-    icon: <ChackBoard />,
-    backgroundImage: "/images/header-image.jpg", // Replace with your image paths
-  },
-  {
-    title:
-      "تسعى أكاديمية البرمجة العربية إلى تقديم أفضل البرامج التعليمية المتخصصة في مجالات البرمجة والتكنولوجيا الحديثة",
-    description1:
-      "تقدم الأكاديمية مناهج تعليمية متكاملة، تعتمد على أساليب تعلم مبتكرة ودورات تدريبية تفاعلية تلبي احتياجات الطلاب من مختلف المستويات",
-    description2:
-      "نحن نوفر بيئة تعليمية مرنة، بإشراف خبراء متميزين في مجالات البرمجة والتطوير، لتمكين المتعلمين من تحقيق أهدافهم المهنية في مجال التكنولوجيا",
-    buttonText: "البرامج التدريبية",
-    icon: <ChackBoard />,
-    backgroundImage: "/images/human2.jpeg", // Replace with your image paths
-  },
-];
+import { slides } from "@/data/slides";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const handlePreviousSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const changeSlide = (direction: 1 | -1) => {
+    setCurrentSlide((prev) => {
+      const newIndex = (prev + direction + slides.length) % slides.length;
+      return newIndex;
+    });
   };
 
   return (
@@ -59,11 +25,9 @@ const HeroSection = () => {
         }}
       >
         <div className={styles.content}>
-          {/* Title Section */}
           <div className={styles.titleContainer}>
             <h1 className={styles.title}>{slides[currentSlide].title}</h1>
           </div>
-          {/* Description + Button Section */}
           <div className={styles.textContainer}>
             <p className={styles.description1}>
               {slides[currentSlide].description1}
@@ -81,19 +45,16 @@ const HeroSection = () => {
         </div>
         <ArrowButton
           direction="left"
-          onClick={handlePreviousSlide}
-          // size={50}
+          onClick={() => changeSlide(-1)}
           color="#ffffff"
         />
         <ArrowButton
           direction="right"
-          onClick={handleNextSlide}
-          // size={50}
+          onClick={() => changeSlide(1)}
           color="#ffffff"
         />
       </div>
 
-      {/* Dots */}
       <div className={styles.dots}>
         {slides.map((_, index) => (
           <span
