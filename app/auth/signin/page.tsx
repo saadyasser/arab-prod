@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { Fieldset, Input, Stack } from "@chakra-ui/react";
@@ -21,6 +21,7 @@ import styles from "./SignIn.module.css";
 import { getPasswordStrength } from "./utils/getPasswordStrength";
 import { validatePassword } from "./utils/validatePassword";
 import { signIn } from "next-auth/react";
+import { Button } from "@/components/ui/button";
 
 interface FormValues {
   username: string;
@@ -85,9 +86,7 @@ const Signin = () => {
                   </Stack>
                 </Field>
 
-                <Link href="https://google.com">
-                  {FORM_LABELS.FORGOT_PASSWORD}
-                </Link>
+                <Link href="/auth/signin">{FORM_LABELS.FORGOT_PASSWORD}</Link>
 
                 <Checkbox dir="rtl" required>
                   {FORM_LABELS.STAY_CONNECTED}
@@ -114,13 +113,35 @@ const Signin = () => {
               </Stack>
             </Fieldset.Root>
           </form>
-          <button
+
+          <div className={styles["lined-text"]}>
+            يمكنك تسجيل الدخول باستخدام
+          </div>
+          <Stack direction="row" margin="22px 43px">
+            <Button type="button" className={styles["btn-auth"]}>
+              Facebook
+              <hr className={styles["btn-line"]} />
+              <span className={styles["btn-icon"]}>F</span>
+            </Button>
+            <Button
+              type="button"
+              className={styles["btn-auth"]}
+              onClick={() => {
+                signIn("google");
+              }}
+            >
+              Google
+              <span className={styles["btn-icon"]}>G</span>
+            </Button>
+          </Stack>
+
+          {/* <button
             onClick={() => {
               signIn("google");
             }}
           >
             Signin With Google
-          </button>
+          </button> */}
         </div>
         <div className={styles["sigin-image"]}>
           <Image

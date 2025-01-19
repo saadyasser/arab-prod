@@ -42,3 +42,46 @@
   padding: 17px 32px;
   background-color: var(--tropical-green-color);
 }
+
+.lined-text {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.lined-text::before,
+.lined-text::after {
+  content: "ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ";
+  position: absolute;
+  transform: translateY(-50%);
+  height: 1px;
+}
+
+.lined-text::before {
+  left: 4%;
+}
+
+.lined-text::after {
+  right: 4%;
+}
+
+.btn-auth {
+  padding: 20px 13px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  position: relative;
+}
+.btn-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 50%;
+  z-index: 10;
+}
+.btn-icon {
+}
