@@ -1,15 +1,13 @@
-// middleware.ts
 import { NextRequest, NextResponse } from "next/server";
+import { getToken } from "next-auth/jwt";
 
-export function middleware(request: NextRequest): NextResponse {
-  const token = request.cookies.get("next-auth.session-token"); // Check for authentication token
+export async function middleware(request: NextRequest): Promise<NextResponse> {
+  const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
 
-  // If token exists, redirect to the profile page (or any other page you'd like)
   if (token && request.nextUrl.pathname === "/auth/signin") {
     return NextResponse.redirect(new URL("/profile", request.url));
   }
 
-  // If the token does not exist, proceed with the current behavior
   if (!token && request.nextUrl.pathname !== "/auth/signin") {
     return NextResponse.redirect(new URL("/auth/signin", request.url));
   }
@@ -17,7 +15,6 @@ export function middleware(request: NextRequest): NextResponse {
   return NextResponse.next();
 }
 
-// Define which paths the middleware should apply to (e.g., /auth/signin, /dashboard, /profile)
 export const config = {
   matcher: ["/auth/signin", "/dashboard", "/profile"],
 };

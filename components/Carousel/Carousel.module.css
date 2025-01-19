@@ -96,7 +96,7 @@
     padding-inline: 80px;
   }
   .carousel-items {
-    width: calc(100% - 40px);
+    width: calc(100% - 110px);
   }
   .arrow-left,
   .arrow-right {
