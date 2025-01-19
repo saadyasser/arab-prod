@@ -5,7 +5,7 @@ interface ErrorMessageProps {
 }
 
 const ErrorMessage: React.FC<ErrorMessageProps> = ({ message }) => (
-  <div style={{ color: "red", marginBottom: "10px" }}>{message}</div>
+  <div style={{ color: "red" }}>{message}</div>
 );
 
 export default ErrorMessage;

@@ -40,92 +40,136 @@ const Signin = () => {
   return (
     <div className={styles["signin-container"]}>
       <div className={styles["sigin-card"]}>
-        <div className={styles["sigin-form"]}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Fieldset.Root size="lg" maxW="md">
-              <Stack mb="35px">
-                <Fieldset.Legend className={styles["title"]}>
-                  {FORM_LABELS.LOGIN}{" "}
-                </Fieldset.Legend>
-              </Stack>
+        <div className={styles["auth-sigin"]}>
+          <div className={styles["sigin-form"]}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Fieldset.Root size="lg" maxW="md">
+                <Stack mb="35px">
+                  <Fieldset.Legend className={styles["title"]}>
+                    {FORM_LABELS.LOGIN}{" "}
+                  </Fieldset.Legend>
+                </Stack>
 
-              <Fieldset.Content className={styles["content"]}>
-                <Field
-                  label={FORM_LABELS.USERNAME_EMAIL}
-                  invalid={!!errors.username}
-                  errorText={errors.username?.message}
-                  required
-                >
-                  {/* <EmailIcon /> */}
-                  <Input
-                    {...register("username", {
-                      required: FORM_ERRORS.USERNAME_REQUIRED,
-                    })}
-                  />
-                </Field>
-
-                <Field
-                  label={FORM_LABELS.PASSWORD}
-                  invalid={!!errors.password}
-                  errorText={errors.password?.message}
-                  required
-                >
-                  <Stack width="full">
-                    <PasswordInput
-                      defaultVisible={true}
-                      visibility="readonly"
-                      // onVisibleChange={(e) => console.log(e, "test change")}
-                      {...register("password", {
-                        required: FORM_ERRORS.PASSWORD_REQUIRED,
-                        validate: validatePassword,
+                <Fieldset.Content className={styles["content"]}>
+                  <Field
+                    label={FORM_LABELS.USERNAME_EMAIL}
+                    invalid={!!errors.username}
+                    errorText={errors.username?.message}
+                    required
+                  >
+                    {/* <EmailIcon /> */}
+                    <Input
+                      {...register("username", {
+                        required: FORM_ERRORS.USERNAME_REQUIRED,
                       })}
                     />
-                    <PasswordStrengthMeter
-                      value={getPasswordStrength(watch("password"))}
-                    />
-                  </Stack>
-                </Field>
+                  </Field>
 
-                <Link href="/auth/signin">{FORM_LABELS.FORGOT_PASSWORD}</Link>
+                  <Field
+                    label={FORM_LABELS.PASSWORD}
+                    invalid={!!errors.password}
+                    errorText={errors.password?.message}
+                    required
+                  >
+                    <Stack width="full">
+                      <PasswordInput
+                        defaultVisible={true}
+                        visibility="readonly"
+                        // onVisibleChange={(e) => console.log(e, "test change")}
+                        {...register("password", {
+                          required: FORM_ERRORS.PASSWORD_REQUIRED,
+                          validate: validatePassword,
+                        })}
+                      />
+                      <PasswordStrengthMeter
+                        value={getPasswordStrength(watch("password"))}
+                      />
+                    </Stack>
+                  </Field>
 
-                <Checkbox dir="rtl" required>
-                  {FORM_LABELS.STAY_CONNECTED}
-                </Checkbox>
-              </Fieldset.Content>
+                  <Link href="/auth/signin">{FORM_LABELS.FORGOT_PASSWORD}</Link>
 
-              {error && <ErrorMessage message={error} />}
+                  <Checkbox dir="rtl" required>
+                    {FORM_LABELS.STAY_CONNECTED}
+                  </Checkbox>
 
-              <Stack direction="row" margin="22px 43px">
-                <ActionButton
-                  type="submit"
-                  icon={<LoginIcon />}
-                  className={styles["btn-submit"]}
-                >
-                  {FORM_LABELS.LOGIN}
-                </ActionButton>
-                <ActionButton
-                  type="button"
-                  icon={<UserRegisterIcon />}
-                  className={styles["btn"]}
-                >
-                  {FORM_LABELS.CREATE_ACCOUNT}
-                </ActionButton>
-              </Stack>
-            </Fieldset.Root>
-          </form>
+                  {error ? (
+                    <ErrorMessage message={error} />
+                  ) : (
+                    <span
+                      style={{
+                        height: "24px",
+                      }}
+                    ></span>
+                  )}
+                </Fieldset.Content>
 
-          <div className={styles["lined-text"]}>
-            يمكنك تسجيل الدخول باستخدام
+                <Stack direction="row" margin="10px 43px">
+                  <ActionButton
+                    type="submit"
+                    icon={<LoginIcon />}
+                    className={styles["btn-submit"]}
+                  >
+                    {FORM_LABELS.LOGIN}
+                  </ActionButton>
+                  <ActionButton
+                    type="button"
+                    icon={<UserRegisterIcon />}
+                    className={styles["btn"]}
+                  >
+                    {FORM_LABELS.CREATE_ACCOUNT}
+                  </ActionButton>
+                </Stack>
+              </Fieldset.Root>
+            </form>
           </div>
-          <Stack direction="row" margin="22px 43px">
-            <Button type="button" className={styles["btn-auth"]}>
+          <div
+            style={{
+              marginTop: "15px",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "10px",
+              // paddingRight: "40px",
+            }}
+          >
+            <hr
+              style={{
+                width: "70%",
+                height: "2px",
+                backgroundColor: "black",
+                // opacity: "100%",
+              }}
+            />
+            <span
+              style={{
+                width: "100%",
+                textAlign: "center",
+              }}
+            >
+              يمكنك تسجيل الدخول باستخدام
+            </span>
+            <hr
+              style={{
+                width: "70%",
+                height: "2px",
+                backgroundColor: "black",
+              }}
+            />
+          </div>
+          <Stack direction="row" justifyContent="center" margin="22px 43px">
+            <Button
+              type="button"
+              className={`${styles["btn-auth"]} ${styles["facebook-btn"]}`}
+            >
               Facebook
-              <hr className={styles["btn-line"]} />
+              {/* <hr className={styles["btn-line"]} /> */}
               <span className={styles["btn-icon"]}>F</span>
             </Button>
             <Button
               type="button"
-              className={styles["btn-auth"]}
+              className={`${styles["btn-auth"]} ${styles["google-btn"]}`}
               onClick={() => {
                 signIn("google");
               }}
@@ -134,15 +178,8 @@ const Signin = () => {
               <span className={styles["btn-icon"]}>G</span>
             </Button>
           </Stack>
-
-          {/* <button
-            onClick={() => {
-              signIn("google");
-            }}
-          >
-            Signin With Google
-          </button> */}
         </div>
+
         <div className={styles["sigin-image"]}>
           <Image
             src="/images/signin-image.png"
